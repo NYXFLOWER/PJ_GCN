@@ -1,12 +1,8 @@
 Address: 206.189.20.152
 
-Password: ladybug171717ladybug (root)
-
 
 
 Conda - evn:
-
-- 'nlp': for nlp coursework
 - 'decagon': for stanford decagon
 
 
