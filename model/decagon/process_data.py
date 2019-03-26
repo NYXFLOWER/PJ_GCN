@@ -2,10 +2,82 @@ import csv
 import numpy as np
 import scipy.sparse as sp
 import decagon.utility.preprocessing as preprocessing
+import pickle
 
 
 class DecagonData:
     def __init__(self):
+        # load data
+        with open('/home/acq18hx/decagon/data_decagon/graph_num_info.pkl', 'rb') as f:
+            [num_gene, num_drug, num_edge_type, num_drug_additional_feature] = pickle.load(f)
+
+        # gene-gene
+        gene_adj = sp.load_npz("/home/acq18hx/decagon/data_decagon/gene-sparse-adj.npz")
+
+        # gene-drug
+        gene_drug_adj = sp.load_npz("/home/acq18hx/decagon/data_decagon/gene-drug-sparse-adj.npz")
+        drug_gene_adj = sp.load_npz("/home/acq18hx/decagon/data_decagon/drug-gene-sparse-adj.npz")
+
+        # drug-drug
+        drug_drug_adj_list = []
+        for i in range(num_edge_type):
+            drug_drug_adj_list.append(sp.load_npz("".join(["/home/acq18hx/decagon/data_decagon/drug-sparse-adj/type_", str(i), ".npz"])))
+
+        drug_feat_sparse = sp.load_npz("/home/acq18hx/decagon/data_decagon/drug-feature-sparse.npz")
+
+        # -------------------------- gene feature --------------------------
+        # featureless (genes)
+        gene_feat = sp.identity(num_gene)
+        gene_nonzero_feat, gene_num_feat = gene_feat.shape
+        gene_feat = preprocessing.sparse_to_tuple(gene_feat.tocoo())
+
+        # drug vectors with additional features (single side effect)
+        drug_nonzero_feat, drug_num_feat = drug_feat_sparse.shape[1], np.count_nonzero(drug_feat_sparse.sum(axis=0))
+        drug_feat = preprocessing.sparse_to_tuple(drug_feat_sparse.tocoo())
+
+        # data representation
+        self.adj_mats_orig = {
+            (0, 0): [gene_adj, gene_adj.transpose(copy=True)],
+            (0, 1): [gene_drug_adj],
+            (1, 0): [drug_gene_adj],
+            (1, 1): drug_drug_adj_list + [x.transpose(copy=True) for x in drug_drug_adj_list],
+        }
+
+        gene_degrees = np.array(gene_adj.sum(axis=0)).squeeze()
+        drug_degrees_list = [np.array(drug_adj.sum(axis=0)).squeeze() for drug_adj in drug_drug_adj_list]
+        self.degrees = {
+            0: [gene_degrees, gene_degrees],
+            1: drug_degrees_list + drug_degrees_list,
+        }
+
+        # data representation
+        self.num_feat = {
+            0: gene_num_feat,
+            1: drug_num_feat,
+        }
+        self.num_nonzero_feat = {
+            0: gene_nonzero_feat,
+            1: drug_nonzero_feat,
+        }
+        self.feat = {
+            0: gene_feat,
+            1: drug_feat,
+        }
+
+        self.edge_type2dim = {k: [adj.shape for adj in adjs] for k, adjs in self.adj_mats_orig.items()}
+        self.edge_type2decoder = {
+            (0, 0): 'bilinear',
+            (0, 1): 'bilinear',
+            (1, 0): 'bilinear',
+            (1, 1): 'dedicom',
+        }
+
+        self.edge_types = {k: len(v) for k, v in self.adj_mats_orig.items()}
+        self.num_edge_types = sum(self.edge_types.values())
+        print("Edge types:", "%d" % self.num_edge_types)
+
+
+    def build_original(self):
         pp_f = "data_decagon/PP-Decagon_ppi.csv"
         dd_f = "data_decagon/bio-decagon-combo.csv"
         dp_f = "data_decagon/bio-decagon-targets.csv"
@@ -141,7 +213,7 @@ class DecagonData:
             0: gene_num_feat,
             1: drug_num_feat,
         }
-        self.nonzero_feat = {
+        self.num_nonzero_feat = {
             0: gene_nonzero_feat,
             1: drug_nonzero_feat,
         }

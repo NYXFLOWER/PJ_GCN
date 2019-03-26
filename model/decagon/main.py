@@ -105,50 +105,15 @@ def construct_placeholders(edge_types):
 # Load and preprocess data (This is a dummy toy example!)
 #
 ###########################################################
-def get_gene_adj():
-    row, col = [], []
-    with open("data_decagon/bio-decagon-ppi.csv", 'r') as f:
-        ppi = csv.reader(f)
-        next(ppi)
-        for [r, c] in ppi:
-            row.append(int(r))
-            col.append(int(c))
-    adj = sp.csr_matrix(([1] * len(row), (row, col)))
-    return adj
-
-
-def get_gene_drug_adj():
-    row, col = [], []
-    with open("data_decagon/bio-decagon-targets.csv", 'r') as f:
-        gene_drug = csv.reader(f)
-        next(gene_drug)
-        for [c, r] in gene_drug:
-            row.append(int(r))
-            col.append(int(c))
-        adj = sp.csr_matrix(([1] * len(row), (row, col)))
-    return adj
-
-
-####
-# The following code uses artificially generated and very small networks.
-# Expect less than excellent performance as these random networks do not have any interesting structure.
-# The purpose of main.py is to show how to use the code!
-#
-# All preprocessed datasets used in the drug combination study are at: http://snap.stanford.edu/decagon:
-# (1) Download datasets from http://snap.stanford.edu/decagon to your local machine.
-# (2) Replace dummy toy datasets used here with the actual datasets you just downloaded.
-# (3) Train & test the model.
-####
-
 decagon = DecagonData()
 val_test_size = 0.2
+
 
 ###########################################################
 #
 # Settings and placeholders
 #
 ###########################################################
-
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
@@ -161,6 +126,7 @@ flags.DEFINE_float('dropout', 0.1, 'Dropout rate (1 - keep probability).')
 flags.DEFINE_float('max_margin', 0.1, 'Max margin parameter in hinge loss')
 flags.DEFINE_integer('batch_size', 512, 'minibatch size.')
 flags.DEFINE_boolean('bias', True, 'Bias term.')
+
 # Important -- Do not evaluate/print validation performance every iteration as it can take
 # substantial amount of time
 PRINT_PROGRESS_EVERY = 150
@@ -187,7 +153,7 @@ print("Create model")
 model = DecagonModel(
     placeholders=placeholders,
     num_feat=decagon.num_feat,
-    nonzero_feat=decagon.nonzero_feat,
+    nonzero_feat=decagon.num_nonzero_feat,
     edge_types=decagon.edge_types,
     decoders=decagon.edge_type2decoder,
 )
