@@ -4,7 +4,6 @@ from operator import itemgetter
 from itertools import combinations
 import time
 import os
-import csv
 
 import tensorflow as tf
 import numpy as np
@@ -16,7 +15,6 @@ from decagon.deep.optimizer import DecagonOptimizer
 from decagon.deep.model import DecagonModel
 from decagon.deep.minibatch import EdgeMinibatchIterator
 from decagon.utility import rank_metrics, preprocessing
-from process_data import DecagonData
 
 # Train on CPU (hide GPU) due to memory constraints
 os.environ['CUDA_VISIBLE_DEVICES'] = ""
@@ -28,7 +26,6 @@ os.environ['CUDA_VISIBLE_DEVICES'] = ""
 # config.gpu_options.allow_growth = True
 
 np.random.seed(0)
-
 
 ###########################################################
 #
@@ -55,7 +52,7 @@ def get_accuracy_scores(edges_pos, edges_neg, edge_type):
     for u, v in edges_pos[edge_type[:2]][edge_type[2]]:
         score = sigmoid(rec[u, v])
         preds.append(score)
-        assert decagon.adj_mats_orig[edge_type[:2]][edge_type[2]][u, v] == 1, 'Problem 1'
+        assert adj_mats_orig[edge_type[:2]][edge_type[2]][u,v] == 1, 'Problem 1'
 
         actual.append(edge_ind)
         predicted.append((score, edge_ind))
@@ -65,7 +62,7 @@ def get_accuracy_scores(edges_pos, edges_neg, edge_type):
     for u, v in edges_neg[edge_type[:2]][edge_type[2]]:
         score = sigmoid(rec[u, v])
         preds_neg.append(score)
-        assert decagon.adj_mats_orig[edge_type[:2]][edge_type[2]][u, v] == 0, 'Problem 0'
+        assert adj_mats_orig[edge_type[:2]][edge_type[2]][u,v] == 0, 'Problem 0'
 
         predicted.append((score, edge_ind))
         edge_ind += 1
@@ -93,27 +90,106 @@ def construct_placeholders(edge_types):
     }
     placeholders.update({
         'adj_mats_%d,%d,%d' % (i, j, k): tf.sparse_placeholder(tf.float32)
-        for i, j in edge_types for k in range(edge_types[i, j])})
+        for i, j in edge_types for k in range(edge_types[i,j])})
     placeholders.update({
         'feat_%d' % i: tf.sparse_placeholder(tf.float32)
         for i, _ in edge_types})
     return placeholders
-
 
 ###########################################################
 #
 # Load and preprocess data (This is a dummy toy example!)
 #
 ###########################################################
-decagon = DecagonData()
-val_test_size = 0.2
 
+####
+# The following code uses artificially generated and very small networks.
+# Expect less than excellent performance as these random networks do not have any interesting structure.
+# The purpose of main.py is to show how to use the code!
+#
+# All preprocessed datasets used in the drug combination study are at: http://snap.stanford.edu/decagon:
+# (1) Download datasets from http://snap.stanford.edu/decagon to your local machine.
+# (2) Replace dummy toy datasets used here with the actual datasets you just downloaded.
+# (3) Train & test the model.
+####
+
+val_test_size = 0.05
+n_genes = 50
+n_drugs = 40
+n_drugdrug_rel_types = 3
+gene_net = nx.planted_partition_graph(5, 10, 0.2, 0.05, seed=42)
+
+gene_adj = nx.adjacency_matrix(gene_net)
+gene_degrees = np.array(gene_adj.sum(axis=0)).squeeze()
+
+gene_drug_adj = sp.csr_matrix((10 * np.random.randn(n_genes, n_drugs) > 10).astype(int))
+drug_gene_adj = gene_drug_adj.transpose(copy=True)
+
+drug_drug_adj_list = []
+tmp = np.dot(drug_gene_adj, gene_drug_adj)
+for i in range(n_drugdrug_rel_types):
+    mat = np.zeros((n_drugs, n_drugs))
+    for d1, d2 in combinations(list(range(n_drugs)), 2):
+        if tmp[d1, d2] == i + 1:
+            mat[d1, d2] = mat[d2, d1] = 1.
+    drug_drug_adj_list.append(sp.csr_matrix(mat))
+drug_degrees_list = [np.array(drug_adj.sum(axis=0)).squeeze() for drug_adj in drug_drug_adj_list]
+
+
+# data representation
+adj_mats_orig = {
+    (0, 0): [gene_adj, gene_adj.transpose(copy=True)],
+    (0, 1): [gene_drug_adj],
+    (1, 0): [drug_gene_adj],
+    (1, 1): drug_drug_adj_list + [x.transpose(copy=True) for x in drug_drug_adj_list],
+}
+degrees = {
+    0: [gene_degrees, gene_degrees],
+    1: drug_degrees_list + drug_degrees_list,
+}
+
+# featureless (genes)
+gene_feat = sp.identity(n_genes)
+gene_nonzero_feat, gene_num_feat = gene_feat.shape
+gene_feat = preprocessing.sparse_to_tuple(gene_feat.tocoo())
+
+# features (drugs)
+drug_feat = sp.identity(n_drugs)
+drug_nonzero_feat, drug_num_feat = drug_feat.shape
+drug_feat = preprocessing.sparse_to_tuple(drug_feat.tocoo())
+
+# data representation
+num_feat = {
+    0: gene_num_feat,
+    1: drug_num_feat,
+}
+nonzero_feat = {
+    0: gene_nonzero_feat,
+    1: drug_nonzero_feat,
+}
+feat = {
+    0: gene_feat,
+    1: drug_feat,
+}
+
+edge_type2dim = {k: [adj.shape for adj in adjs] for k, adjs in adj_mats_orig.items()}
+edge_type2decoder = {
+    (0, 0): 'bilinear',
+    (0, 1): 'bilinear',
+    (1, 0): 'bilinear',
+    (1, 1): 'dedicom',
+}
+
+edge_types = {k: len(v) for k, v in adj_mats_orig.items()}
+num_edge_types = sum(edge_types.values())
+print("Edge types:", "%d" % num_edge_types)
 
 ###########################################################
 #
 # Settings and placeholders
 #
 ###########################################################
+
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
@@ -126,13 +202,12 @@ flags.DEFINE_float('dropout', 0.1, 'Dropout rate (1 - keep probability).')
 flags.DEFINE_float('max_margin', 0.1, 'Max margin parameter in hinge loss')
 flags.DEFINE_integer('batch_size', 12, 'minibatch size.')
 flags.DEFINE_boolean('bias', True, 'Bias term.')
-
 # Important -- Do not evaluate/print validation performance every iteration as it can take
 # substantial amount of time
 PRINT_PROGRESS_EVERY = 150
 
 print("Defining placeholders")
-placeholders = construct_placeholders(decagon.edge_types)
+placeholders = construct_placeholders(edge_types)
 
 ###########################################################
 #
@@ -142,9 +217,9 @@ placeholders = construct_placeholders(decagon.edge_types)
 
 print("Create minibatch iterator")
 minibatch = EdgeMinibatchIterator(
-    adj_mats=decagon.adj_mats_orig,
-    feat=decagon.feat,
-    edge_types=decagon.edge_types,
+    adj_mats=adj_mats_orig,
+    feat=feat,
+    edge_types=edge_types,
     batch_size=FLAGS.batch_size,
     val_test_size=val_test_size
 )
@@ -152,10 +227,10 @@ minibatch = EdgeMinibatchIterator(
 print("Create model")
 model = DecagonModel(
     placeholders=placeholders,
-    num_feat=decagon.num_feat,
-    nonzero_feat=decagon.num_nonzero_feat,
-    edge_types=decagon.edge_types,
-    decoders=decagon.edge_type2decoder,
+    num_feat=num_feat,
+    nonzero_feat=nonzero_feat,
+    edge_types=edge_types,
+    decoders=edge_type2decoder,
 )
 
 print("Create optimizer")
@@ -164,9 +239,9 @@ with tf.name_scope('optimizer'):
         embeddings=model.embeddings,
         latent_inters=model.latent_inters,
         latent_varies=model.latent_varies,
-        degrees=decagon.degrees,
-        edge_types=decagon.edge_types,
-        edge_type2dim=decagon.edge_type2dim,
+        degrees=degrees,
+        edge_types=edge_types,
+        edge_type2dim=edge_type2dim,
         placeholders=placeholders,
         batch_size=FLAGS.batch_size,
         margin=FLAGS.max_margin
@@ -217,7 +292,7 @@ for epoch in range(FLAGS.epochs):
 
 print("Optimization finished!")
 
-for et in range(decagon.num_edge_types):
+for et in range(num_edge_types):
     roc_score, auprc_score, apk_score = get_accuracy_scores(
         minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
     print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])

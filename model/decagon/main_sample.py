@@ -16,8 +16,8 @@ from decagon.deep.model import DecagonModel
 from decagon.deep.minibatch import EdgeMinibatchIterator
 from decagon.utility import rank_metrics, preprocessing
 
-# import warnings
-# warnings.filterwarnings('ignore')
+import warnings
+warnings.filterwarnings('ignore')
 
 # Train on CPU (hide GPU) due to memory constraints
 os.environ['CUDA_VISIBLE_DEVICES'] = ""
@@ -125,7 +125,7 @@ gene_net = nx.planted_partition_graph(5, 10, 0.2, 0.05, seed=42)
 gene_adj = nx.adjacency_matrix(gene_net)
 gene_degrees = np.array(gene_adj.sum(axis=0)).squeeze()
 
-gene_drug_adj = sp.csr_matrix((10 * np.random.randn(n_genes, n_drugs) > 15).astype(int))
+gene_drug_adj = sp.csr_matrix((10 * np.random.randn(n_genes, n_drugs) > 10).astype(int))
 drug_gene_adj = gene_drug_adj.transpose(copy=True)
 
 drug_drug_adj_list = []
@@ -133,7 +133,7 @@ tmp = np.dot(drug_gene_adj, gene_drug_adj)
 for i in range(n_drugdrug_rel_types):
     mat = np.zeros((n_drugs, n_drugs))
     for d1, d2 in combinations(list(range(n_drugs)), 2):
-        if tmp[d1, d2] == i + 4:
+        if tmp[d1, d2] == i + 1:
             mat[d1, d2] = mat[d2, d1] = 1.
     drug_drug_adj_list.append(sp.csr_matrix(mat))
 drug_degrees_list = [np.array(drug_adj.sum(axis=0)).squeeze() for drug_adj in drug_drug_adj_list]
@@ -203,7 +203,7 @@ flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 50, 'Number of epochs to train.')
+flags.DEFINE_integer('epochs', 1, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
 flags.DEFINE_float('weight_decay', 0, 'Weight for L2 loss on embedding matrix.')
