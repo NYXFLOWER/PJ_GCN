@@ -11,6 +11,10 @@ class DecagonData:
         with open('data_decagon/graph_num_info.pkl', 'rb') as f:
             [num_gene, num_drug, num_edge_type, num_drug_additional_feature] = pickle.load(f)
 
+
+        num_drug = 3
+
+
         # gene-gene
         gene_adj = sp.load_npz("data_decagon/gene-sparse-adj.npz")
 
@@ -22,6 +26,11 @@ class DecagonData:
         drug_drug_adj_list = []
         for i in range(num_edge_type):
             drug_drug_adj_list.append(sp.load_npz("".join(["data_decagon/drug-sparse-adj/type_", str(i), ".npz"])))
+
+
+            if i == 2:
+                break
+
 
         drug_feat_sparse = sp.load_npz("data_decagon/drug-feature-sparse.npz")
 
