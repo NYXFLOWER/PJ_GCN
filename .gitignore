@@ -119,3 +119,11 @@ dmypy.json
 *.npz
 *.csv
 *.pdf
+data_decagon/
+deta_decagon_sample/
+guid/
+learning_ material/
+raw_data/
+reference/
+result/
+
