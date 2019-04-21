@@ -1,15 +1,12 @@
 from __future__ import division
 from __future__ import print_function
 from operator import itemgetter
-from itertools import combinations
 import time
 import os
-import csv
+import sys
 
 import tensorflow as tf
 import numpy as np
-import networkx as nx
-import scipy.sparse as sp
 from sklearn import metrics
 
 from decagon.deep.optimizer import DecagonOptimizer
@@ -100,9 +97,16 @@ def construct_placeholders(edge_types):
     return placeholders
 
 
+# logging
+print("All Print Info will be written to output.log")
+stdout_backup = sys.stdout
+log_file =open("output.log", "w")
+sys.stdout = log_file
+
+
 ###########################################################
 #
-# Load and preprocess data (This is a dummy toy example!)
+# Load and preprocess data
 #
 ###########################################################
 decagon = DecagonData()
@@ -118,13 +122,13 @@ flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 1, 'Number of epochs to train.')
+flags.DEFINE_integer('epochs', 50, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
 flags.DEFINE_float('weight_decay', 0, 'Weight for L2 loss on embedding matrix.')
 flags.DEFINE_float('dropout', 0.1, 'Dropout rate (1 - keep probability).')
 flags.DEFINE_float('max_margin', 0.1, 'Max margin parameter in hinge loss')
-flags.DEFINE_integer('batch_size', 12, 'minibatch size.')
+flags.DEFINE_integer('batch_size', 512, 'minibatch size.')
 flags.DEFINE_boolean('bias', True, 'Bias term.')
 
 # Important -- Do not evaluate/print validation performance every iteration as it can take
@@ -225,3 +229,8 @@ for et in range(decagon.num_edge_types):
     print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
     print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
     print()
+
+
+log_file.close()
+sys.stdout = stdout_backup
+print("Finished!")
