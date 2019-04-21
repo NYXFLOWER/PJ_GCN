@@ -16,6 +16,6 @@ result/
 .idea/
 .ipynb_checkpoints
 *.pyc
-*/*/*/*.pyc
+decagon/deep/__pycache__/
 
 
