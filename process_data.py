@@ -8,31 +8,22 @@ import pickle
 class DecagonData:
     def __init__(self):
         # load data
-        with open('data_decagon/graph_num_info.pkl', 'rb') as f:
+        with open('/home/acq18hx/decagon/data_decagon/graph_num_info.pkl', 'rb') as f:
             [num_gene, num_drug, num_edge_type, num_drug_additional_feature] = pickle.load(f)
 
-
-        num_drug = 3
-
-
         # gene-gene
-        gene_adj = sp.load_npz("data_decagon/gene-sparse-adj.npz")
+        gene_adj = sp.load_npz("/home/acq18hx/decagon/data_decagon/gene-sparse-adj.npz")
 
         # gene-drug
-        gene_drug_adj = sp.load_npz("data_decagon/gene-drug-sparse-adj.npz")
-        drug_gene_adj = sp.load_npz("data_decagon/drug-gene-sparse-adj.npz")
+        gene_drug_adj = sp.load_npz("/home/acq18hx/decagon/data_decagon/gene-drug-sparse-adj.npz")
+        drug_gene_adj = sp.load_npz("/home/acq18hx/decagon/data_decagon/drug-gene-sparse-adj.npz")
 
         # drug-drug
         drug_drug_adj_list = []
         for i in range(num_edge_type):
-            drug_drug_adj_list.append(sp.load_npz("".join(["data_decagon/drug-sparse-adj/type_", str(i), ".npz"])))
+            drug_drug_adj_list.append(sp.load_npz("".join(["/home/acq18hx/decagon/data_decagon/drug-sparse-adj/type_", str(i), ".npz"])))
 
-
-            if i == 2:
-                break
-
-
-        drug_feat_sparse = sp.load_npz("data_decagon/drug-feature-sparse.npz")
+        drug_feat_sparse = sp.load_npz("/home/acq18hx/decagon/data_decagon/drug-feature-sparse.npz")
 
         # -------------------------- gene feature --------------------------
         # featureless (genes)

@@ -98,10 +98,10 @@ def construct_placeholders(edge_types):
 
 
 # logging
-print("All Print Info will be written to output.log")
-stdout_backup = sys.stdout
-log_file =open("output.log", "w")
-sys.stdout = log_file
+# print("All Print Info will be written to output.log")
+# stdout_backup = sys.stdout
+# log_file =open("output.log", "w")
+# sys.stdout = log_file
 
 
 ###########################################################
@@ -231,6 +231,6 @@ for et in range(decagon.num_edge_types):
     print()
 
 
-log_file.close()
-sys.stdout = stdout_backup
+# log_file.close()
+# sys.stdout = stdout_backup
 print("Finished!")
