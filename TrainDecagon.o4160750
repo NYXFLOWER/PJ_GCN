@@ -1,0 +1,1010 @@
+Hello from 4160750. 
+Edge types: 26
+Defining placeholders
+Create minibatch iterator
+Minibatch edge type: (0, 0, 0)
+Constructing test edges= 0000/143122
+Constructing test edges= 1000/143122
+Constructing test edges= 2000/143122
+Constructing test edges= 3000/143122
+Constructing test edges= 4000/143122
+Constructing test edges= 5000/143122
+Constructing test edges= 6000/143122
+Constructing test edges= 7000/143122
+Constructing test edges= 8000/143122
+Constructing test edges= 9000/143122
+Constructing test edges= 10000/143122
+Constructing test edges= 11000/143122
+Constructing test edges= 12000/143122
+Constructing test edges= 13000/143122
+Constructing test edges= 14000/143122
+Constructing test edges= 15000/143122
+Constructing test edges= 16000/143122
+Constructing test edges= 17000/143122
+Constructing test edges= 18000/143122
+Constructing test edges= 19000/143122
+Constructing test edges= 20000/143122
+Constructing test edges= 21000/143122
+Constructing test edges= 22000/143122
+Constructing test edges= 23000/143122
+Constructing test edges= 24000/143122
+Constructing test edges= 25000/143122
+Constructing test edges= 26000/143122
+Constructing test edges= 27000/143122
+Constructing test edges= 28000/143122
+Constructing test edges= 29000/143122
+Constructing test edges= 30000/143122
+Constructing test edges= 31000/143122
+Constructing test edges= 32000/143122
+Constructing test edges= 33000/143122
+Constructing test edges= 34000/143122
+Constructing test edges= 35000/143122
+Constructing test edges= 36000/143122
+Constructing test edges= 37000/143122
+Constructing test edges= 38000/143122
+Constructing test edges= 39000/143122
+Constructing test edges= 40000/143122
+Constructing test edges= 41000/143122
+Constructing test edges= 42000/143122
+Constructing test edges= 43000/143122
+Constructing test edges= 44000/143122
+Constructing test edges= 45000/143122
+Constructing test edges= 46000/143122
+Constructing test edges= 47000/143122
+Constructing test edges= 48000/143122
+Constructing test edges= 49000/143122
+Constructing test edges= 50000/143122
+Constructing test edges= 51000/143122
+Constructing test edges= 52000/143122
+Constructing test edges= 53000/143122
+Constructing test edges= 54000/143122
+Constructing test edges= 55000/143122
+Constructing test edges= 56000/143122
+Constructing test edges= 57000/143122
+Constructing test edges= 58000/143122
+Constructing test edges= 59000/143122
+Constructing test edges= 60000/143122
+Constructing test edges= 61000/143122
+Constructing test edges= 62000/143122
+Constructing test edges= 63000/143122
+Constructing test edges= 64000/143122
+Constructing test edges= 65000/143122
+Constructing test edges= 66000/143122
+Constructing test edges= 67000/143122
+Constructing test edges= 68000/143122
+Constructing test edges= 69000/143122
+Constructing test edges= 70000/143122
+Constructing test edges= 71000/143122
+Constructing test edges= 72000/143122
+Constructing test edges= 73000/143122
+Constructing test edges= 74000/143122
+Constructing test edges= 75000/143122
+Constructing test edges= 76000/143122
+Constructing test edges= 77000/143122
+Constructing test edges= 78000/143122
+Constructing test edges= 79000/143122
+Constructing test edges= 80000/143122
+Constructing test edges= 81000/143122
+Constructing test edges= 82000/143122
+Constructing test edges= 83000/143122
+Constructing test edges= 84000/143122
+Constructing test edges= 85000/143122
+Constructing test edges= 86000/143122
+Constructing test edges= 87000/143122
+Constructing test edges= 88000/143122
+Constructing test edges= 89000/143122
+Constructing test edges= 90000/143122
+Constructing test edges= 91000/143122
+Constructing test edges= 92000/143122
+Constructing test edges= 93000/143122
+Constructing test edges= 94000/143122
+Constructing test edges= 95000/143122
+Constructing test edges= 96000/143122
+Constructing test edges= 97000/143122
+Constructing test edges= 98000/143122
+Constructing test edges= 99000/143122
+Constructing test edges= 100000/143122
+Constructing test edges= 101000/143122
+Constructing test edges= 102000/143122
+Constructing test edges= 103000/143122
+Constructing test edges= 104000/143122
+Constructing test edges= 105000/143122
+Constructing test edges= 106000/143122
+Constructing test edges= 107000/143122
+Constructing test edges= 108000/143122
+Constructing test edges= 109000/143122
+Constructing test edges= 110000/143122
+Constructing test edges= 111000/143122
+Constructing test edges= 112000/143122
+Constructing test edges= 113000/143122
+Constructing test edges= 114000/143122
+Constructing test edges= 115000/143122
+Constructing test edges= 116000/143122
+Constructing test edges= 117000/143122
+Constructing test edges= 118000/143122
+Constructing test edges= 119000/143122
+Constructing test edges= 120000/143122
+Constructing test edges= 121000/143122
+Constructing test edges= 122000/143122
+Constructing test edges= 123000/143122
+Constructing test edges= 124000/143122
+Constructing test edges= 125000/143122
+Constructing test edges= 126000/143122
+Constructing test edges= 127000/143122
+Constructing test edges= 128000/143122
+Constructing test edges= 129000/143122
+Constructing test edges= 130000/143122
+Constructing test edges= 131000/143122
+Constructing test edges= 132000/143122
+Constructing test edges= 133000/143122
+Constructing test edges= 134000/143122
+Constructing test edges= 135000/143122
+Constructing test edges= 136000/143122
+Constructing test edges= 137000/143122
+Constructing test edges= 138000/143122
+Constructing test edges= 139000/143122
+Constructing test edges= 140000/143122
+Constructing test edges= 141000/143122
+Constructing test edges= 142000/143122
+Constructing test edges= 143000/143122
+Constructing val edges= 0000/143122
+Constructing val edges= 1000/143122
+Constructing val edges= 2000/143122
+Constructing val edges= 3000/143122
+Constructing val edges= 4000/143122
+Constructing val edges= 5000/143122
+Constructing val edges= 6000/143122
+Constructing val edges= 7000/143122
+Constructing val edges= 8000/143122
+Constructing val edges= 9000/143122
+Constructing val edges= 10000/143122
+Constructing val edges= 11000/143122
+Constructing val edges= 12000/143122
+Constructing val edges= 13000/143122
+Constructing val edges= 14000/143122
+Constructing val edges= 15000/143122
+Constructing val edges= 16000/143122
+Constructing val edges= 17000/143122
+Constructing val edges= 18000/143122
+Constructing val edges= 19000/143122
+Constructing val edges= 20000/143122
+Constructing val edges= 21000/143122
+Constructing val edges= 22000/143122
+Constructing val edges= 23000/143122
+Constructing val edges= 24000/143122
+Constructing val edges= 25000/143122
+Constructing val edges= 26000/143122
+Constructing val edges= 27000/143122
+Constructing val edges= 28000/143122
+Constructing val edges= 29000/143122
+Constructing val edges= 30000/143122
+Constructing val edges= 31000/143122
+Constructing val edges= 32000/143122
+Constructing val edges= 33000/143122
+Constructing val edges= 34000/143122
+Constructing val edges= 35000/143122
+Constructing val edges= 36000/143122
+Constructing val edges= 37000/143122
+Constructing val edges= 38000/143122
+Constructing val edges= 39000/143122
+Constructing val edges= 40000/143122
+Constructing val edges= 41000/143122
+Constructing val edges= 42000/143122
+Constructing val edges= 43000/143122
+Constructing val edges= 44000/143122
+Constructing val edges= 45000/143122
+Constructing val edges= 46000/143122
+Constructing val edges= 47000/143122
+Constructing val edges= 48000/143122
+Constructing val edges= 49000/143122
+Constructing val edges= 50000/143122
+Constructing val edges= 51000/143122
+Constructing val edges= 52000/143122
+Constructing val edges= 53000/143122
+Constructing val edges= 54000/143122
+Constructing val edges= 55000/143122
+Constructing val edges= 56000/143122
+Constructing val edges= 57000/143122
+Constructing val edges= 58000/143122
+Constructing val edges= 59000/143122
+Constructing val edges= 60000/143122
+Constructing val edges= 61000/143122
+Constructing val edges= 62000/143122
+Constructing val edges= 63000/143122
+Constructing val edges= 64000/143122
+Constructing val edges= 65000/143122
+Constructing val edges= 66000/143122
+Constructing val edges= 67000/143122
+Constructing val edges= 68000/143122
+Constructing val edges= 69000/143122
+Constructing val edges= 70000/143122
+Constructing val edges= 71000/143122
+Constructing val edges= 72000/143122
+Constructing val edges= 73000/143122
+Constructing val edges= 74000/143122
+Constructing val edges= 75000/143122
+Constructing val edges= 76000/143122
+Constructing val edges= 77000/143122
+Constructing val edges= 78000/143122
+Constructing val edges= 79000/143122
+Constructing val edges= 80000/143122
+Constructing val edges= 81000/143122
+Constructing val edges= 82000/143122
+Constructing val edges= 83000/143122
+Constructing val edges= 84000/143122
+Constructing val edges= 85000/143122
+Constructing val edges= 86000/143122
+Constructing val edges= 87000/143122
+Constructing val edges= 88000/143122
+Constructing val edges= 89000/143122
+Constructing val edges= 90000/143122
+Constructing val edges= 91000/143122
+Constructing val edges= 92000/143122
+Constructing val edges= 93000/143122
+Constructing val edges= 94000/143122
+Constructing val edges= 95000/143122
+Constructing val edges= 96000/143122
+Constructing val edges= 97000/143122
+Constructing val edges= 98000/143122
+Constructing val edges= 99000/143122
+Constructing val edges= 100000/143122
+Constructing val edges= 101000/143122
+Constructing val edges= 102000/143122
+Constructing val edges= 103000/143122
+Constructing val edges= 104000/143122
+Constructing val edges= 105000/143122
+Constructing val edges= 106000/143122
+Constructing val edges= 107000/143122
+Constructing val edges= 108000/143122
+Constructing val edges= 109000/143122
+Constructing val edges= 110000/143122
+Constructing val edges= 111000/143122
+Constructing val edges= 112000/143122
+Constructing val edges= 113000/143122
+Constructing val edges= 114000/143122
+Constructing val edges= 115000/143122
+Constructing val edges= 116000/143122
+Constructing val edges= 117000/143122
+Constructing val edges= 118000/143122
+Constructing val edges= 119000/143122
+Constructing val edges= 120000/143122
+Constructing val edges= 121000/143122
+Constructing val edges= 122000/143122
+Constructing val edges= 123000/143122
+Constructing val edges= 124000/143122
+Constructing val edges= 125000/143122
+Constructing val edges= 126000/143122
+Constructing val edges= 127000/143122
+Constructing val edges= 128000/143122
+Constructing val edges= 129000/143122
+Constructing val edges= 130000/143122
+Constructing val edges= 131000/143122
+Constructing val edges= 132000/143122
+Constructing val edges= 133000/143122
+Constructing val edges= 134000/143122
+Constructing val edges= 135000/143122
+Constructing val edges= 136000/143122
+Constructing val edges= 137000/143122
+Constructing val edges= 138000/143122
+Constructing val edges= 139000/143122
+Constructing val edges= 140000/143122
+Constructing val edges= 141000/143122
+Constructing val edges= 142000/143122
+Constructing val edges= 143000/143122
+Train edges= 429368
+Val edges= 143122
+Test edges= 143122
+Minibatch edge type: (0, 0, 1)
+Constructing test edges= 0000/143122
+Constructing test edges= 1000/143122
+Constructing test edges= 2000/143122
+Constructing test edges= 3000/143122
+Constructing test edges= 4000/143122
+Constructing test edges= 5000/143122
+Constructing test edges= 6000/143122
+Constructing test edges= 7000/143122
+Constructing test edges= 8000/143122
+Constructing test edges= 9000/143122
+Constructing test edges= 10000/143122
+Constructing test edges= 11000/143122
+Constructing test edges= 12000/143122
+Constructing test edges= 13000/143122
+Constructing test edges= 14000/143122
+Constructing test edges= 15000/143122
+Constructing test edges= 16000/143122
+Constructing test edges= 17000/143122
+Constructing test edges= 18000/143122
+Constructing test edges= 19000/143122
+Constructing test edges= 20000/143122
+Constructing test edges= 21000/143122
+Constructing test edges= 22000/143122
+Constructing test edges= 23000/143122
+Constructing test edges= 24000/143122
+Constructing test edges= 25000/143122
+Constructing test edges= 26000/143122
+Constructing test edges= 27000/143122
+Constructing test edges= 28000/143122
+Constructing test edges= 29000/143122
+Constructing test edges= 30000/143122
+Constructing test edges= 31000/143122
+Constructing test edges= 32000/143122
+Constructing test edges= 33000/143122
+Constructing test edges= 34000/143122
+Constructing test edges= 35000/143122
+Constructing test edges= 36000/143122
+Constructing test edges= 37000/143122
+Constructing test edges= 38000/143122
+Constructing test edges= 39000/143122
+Constructing test edges= 40000/143122
+Constructing test edges= 41000/143122
+Constructing test edges= 42000/143122
+Constructing test edges= 43000/143122
+Constructing test edges= 44000/143122
+Constructing test edges= 45000/143122
+Constructing test edges= 46000/143122
+Constructing test edges= 47000/143122
+Constructing test edges= 48000/143122
+Constructing test edges= 49000/143122
+Constructing test edges= 50000/143122
+Constructing test edges= 51000/143122
+Constructing test edges= 52000/143122
+Constructing test edges= 53000/143122
+Constructing test edges= 54000/143122
+Constructing test edges= 55000/143122
+Constructing test edges= 56000/143122
+Constructing test edges= 57000/143122
+Constructing test edges= 58000/143122
+Constructing test edges= 59000/143122
+Constructing test edges= 60000/143122
+Constructing test edges= 61000/143122
+Constructing test edges= 62000/143122
+Constructing test edges= 63000/143122
+Constructing test edges= 64000/143122
+Constructing test edges= 65000/143122
+Constructing test edges= 66000/143122
+Constructing test edges= 67000/143122
+Constructing test edges= 68000/143122
+Constructing test edges= 69000/143122
+Constructing test edges= 70000/143122
+Constructing test edges= 71000/143122
+Constructing test edges= 72000/143122
+Constructing test edges= 73000/143122
+Constructing test edges= 74000/143122
+Constructing test edges= 75000/143122
+Constructing test edges= 76000/143122
+Constructing test edges= 77000/143122
+Constructing test edges= 78000/143122
+Constructing test edges= 79000/143122
+Constructing test edges= 80000/143122
+Constructing test edges= 81000/143122
+Constructing test edges= 82000/143122
+Constructing test edges= 83000/143122
+Constructing test edges= 84000/143122
+Constructing test edges= 85000/143122
+Constructing test edges= 86000/143122
+Constructing test edges= 87000/143122
+Constructing test edges= 88000/143122
+Constructing test edges= 89000/143122
+Constructing test edges= 90000/143122
+Constructing test edges= 91000/143122
+Constructing test edges= 92000/143122
+Constructing test edges= 93000/143122
+Constructing test edges= 94000/143122
+Constructing test edges= 95000/143122
+Constructing test edges= 96000/143122
+Constructing test edges= 97000/143122
+Constructing test edges= 98000/143122
+Constructing test edges= 99000/143122
+Constructing test edges= 100000/143122
+Constructing test edges= 101000/143122
+Constructing test edges= 102000/143122
+Constructing test edges= 103000/143122
+Constructing test edges= 104000/143122
+Constructing test edges= 105000/143122
+Constructing test edges= 106000/143122
+Constructing test edges= 107000/143122
+Constructing test edges= 108000/143122
+Constructing test edges= 109000/143122
+Constructing test edges= 110000/143122
+Constructing test edges= 111000/143122
+Constructing test edges= 112000/143122
+Constructing test edges= 113000/143122
+Constructing test edges= 114000/143122
+Constructing test edges= 115000/143122
+Constructing test edges= 116000/143122
+Constructing test edges= 117000/143122
+Constructing test edges= 118000/143122
+Constructing test edges= 119000/143122
+Constructing test edges= 120000/143122
+Constructing test edges= 121000/143122
+Constructing test edges= 122000/143122
+Constructing test edges= 123000/143122
+Constructing test edges= 124000/143122
+Constructing test edges= 125000/143122
+Constructing test edges= 126000/143122
+Constructing test edges= 127000/143122
+Constructing test edges= 128000/143122
+Constructing test edges= 129000/143122
+Constructing test edges= 130000/143122
+Constructing test edges= 131000/143122
+Constructing test edges= 132000/143122
+Constructing test edges= 133000/143122
+Constructing test edges= 134000/143122
+Constructing test edges= 135000/143122
+Constructing test edges= 136000/143122
+Constructing test edges= 137000/143122
+Constructing test edges= 138000/143122
+Constructing test edges= 139000/143122
+Constructing test edges= 140000/143122
+Constructing test edges= 141000/143122
+Constructing test edges= 142000/143122
+Constructing test edges= 143000/143122
+Constructing val edges= 0000/143122
+Constructing val edges= 1000/143122
+Constructing val edges= 2000/143122
+Constructing val edges= 3000/143122
+Constructing val edges= 4000/143122
+Constructing val edges= 5000/143122
+Constructing val edges= 6000/143122
+Constructing val edges= 7000/143122
+Constructing val edges= 8000/143122
+Constructing val edges= 9000/143122
+Constructing val edges= 10000/143122
+Constructing val edges= 11000/143122
+Constructing val edges= 12000/143122
+Constructing val edges= 13000/143122
+Constructing val edges= 14000/143122
+Constructing val edges= 15000/143122
+Constructing val edges= 16000/143122
+Constructing val edges= 17000/143122
+Constructing val edges= 18000/143122
+Constructing val edges= 19000/143122
+Constructing val edges= 20000/143122
+Constructing val edges= 21000/143122
+Constructing val edges= 22000/143122
+Constructing val edges= 23000/143122
+Constructing val edges= 24000/143122
+Constructing val edges= 25000/143122
+Constructing val edges= 26000/143122
+Constructing val edges= 27000/143122
+Constructing val edges= 28000/143122
+Constructing val edges= 29000/143122
+Constructing val edges= 30000/143122
+Constructing val edges= 31000/143122
+Constructing val edges= 32000/143122
+Constructing val edges= 33000/143122
+Constructing val edges= 34000/143122
+Constructing val edges= 35000/143122
+Constructing val edges= 36000/143122
+Constructing val edges= 37000/143122
+Constructing val edges= 38000/143122
+Constructing val edges= 39000/143122
+Constructing val edges= 40000/143122
+Constructing val edges= 41000/143122
+Constructing val edges= 42000/143122
+Constructing val edges= 43000/143122
+Constructing val edges= 44000/143122
+Constructing val edges= 45000/143122
+Constructing val edges= 46000/143122
+Constructing val edges= 47000/143122
+Constructing val edges= 48000/143122
+Constructing val edges= 49000/143122
+Constructing val edges= 50000/143122
+Constructing val edges= 51000/143122
+Constructing val edges= 52000/143122
+Constructing val edges= 53000/143122
+Constructing val edges= 54000/143122
+Constructing val edges= 55000/143122
+Constructing val edges= 56000/143122
+Constructing val edges= 57000/143122
+Constructing val edges= 58000/143122
+Constructing val edges= 59000/143122
+Constructing val edges= 60000/143122
+Constructing val edges= 61000/143122
+Constructing val edges= 62000/143122
+Constructing val edges= 63000/143122
+Constructing val edges= 64000/143122
+Constructing val edges= 65000/143122
+Constructing val edges= 66000/143122
+Constructing val edges= 67000/143122
+Constructing val edges= 68000/143122
+Constructing val edges= 69000/143122
+Constructing val edges= 70000/143122
+Constructing val edges= 71000/143122
+Constructing val edges= 72000/143122
+Constructing val edges= 73000/143122
+Constructing val edges= 74000/143122
+Constructing val edges= 75000/143122
+Constructing val edges= 76000/143122
+Constructing val edges= 77000/143122
+Constructing val edges= 78000/143122
+Constructing val edges= 79000/143122
+Constructing val edges= 80000/143122
+Constructing val edges= 81000/143122
+Constructing val edges= 82000/143122
+Constructing val edges= 83000/143122
+Constructing val edges= 84000/143122
+Constructing val edges= 85000/143122
+Constructing val edges= 86000/143122
+Constructing val edges= 87000/143122
+Constructing val edges= 88000/143122
+Constructing val edges= 89000/143122
+Constructing val edges= 90000/143122
+Constructing val edges= 91000/143122
+Constructing val edges= 92000/143122
+Constructing val edges= 93000/143122
+Constructing val edges= 94000/143122
+Constructing val edges= 95000/143122
+Constructing val edges= 96000/143122
+Constructing val edges= 97000/143122
+Constructing val edges= 98000/143122
+Constructing val edges= 99000/143122
+Constructing val edges= 100000/143122
+Constructing val edges= 101000/143122
+Constructing val edges= 102000/143122
+Constructing val edges= 103000/143122
+Constructing val edges= 104000/143122
+Constructing val edges= 105000/143122
+Constructing val edges= 106000/143122
+Constructing val edges= 107000/143122
+Constructing val edges= 108000/143122
+Constructing val edges= 109000/143122
+Constructing val edges= 110000/143122
+Constructing val edges= 111000/143122
+Constructing val edges= 112000/143122
+Constructing val edges= 113000/143122
+Constructing val edges= 114000/143122
+Constructing val edges= 115000/143122
+Constructing val edges= 116000/143122
+Constructing val edges= 117000/143122
+Constructing val edges= 118000/143122
+Constructing val edges= 119000/143122
+Constructing val edges= 120000/143122
+Constructing val edges= 121000/143122
+Constructing val edges= 122000/143122
+Constructing val edges= 123000/143122
+Constructing val edges= 124000/143122
+Constructing val edges= 125000/143122
+Constructing val edges= 126000/143122
+Constructing val edges= 127000/143122
+Constructing val edges= 128000/143122
+Constructing val edges= 129000/143122
+Constructing val edges= 130000/143122
+Constructing val edges= 131000/143122
+Constructing val edges= 132000/143122
+Constructing val edges= 133000/143122
+Constructing val edges= 134000/143122
+Constructing val edges= 135000/143122
+Constructing val edges= 136000/143122
+Constructing val edges= 137000/143122
+Constructing val edges= 138000/143122
+Constructing val edges= 139000/143122
+Constructing val edges= 140000/143122
+Constructing val edges= 141000/143122
+Constructing val edges= 142000/143122
+Constructing val edges= 143000/143122
+Train edges= 429368
+Val edges= 143122
+Test edges= 143122
+Minibatch edge type: (0, 1, 0)
+Constructing test edges= 0000/3738
+Constructing test edges= 1000/3738
+Constructing test edges= 2000/3738
+Constructing test edges= 3000/3738
+Constructing val edges= 0000/3738
+Constructing val edges= 1000/3738
+Constructing val edges= 2000/3738
+Constructing val edges= 3000/3738
+Train edges= 11214
+Val edges= 3738
+Test edges= 3738
+Minibatch edge type: (1, 0, 0)
+Constructing test edges= 0000/3738
+Constructing test edges= 1000/3738
+Constructing test edges= 2000/3738
+Constructing test edges= 3000/3738
+Constructing val edges= 0000/3738
+Constructing val edges= 1000/3738
+Constructing val edges= 2000/3738
+Constructing val edges= 3000/3738
+Train edges= 11214
+Val edges= 3738
+Test edges= 3738
+Minibatch edge type: (1, 1, 0)
+Constructing test edges= 0000/2228
+Constructing test edges= 1000/2228
+Constructing test edges= 2000/2228
+Constructing val edges= 0000/2228
+Constructing val edges= 1000/2228
+Constructing val edges= 2000/2228
+Train edges= 6686
+Val edges= 2228
+Test edges= 2228
+Minibatch edge type: (1, 1, 1)
+Constructing test edges= 0000/0202
+Constructing val edges= 0000/0202
+Train edges= 0609
+Val edges= 0202
+Test edges= 0202
+Minibatch edge type: (1, 1, 2)
+Constructing test edges= 0000/0216
+Constructing val edges= 0000/0216
+Train edges= 0652
+Val edges= 0216
+Test edges= 0216
+Minibatch edge type: (1, 1, 3)
+Constructing test edges= 0000/0235
+Constructing val edges= 0000/0235
+Train edges= 0706
+Val edges= 0235
+Test edges= 0235
+Minibatch edge type: (1, 1, 4)
+Constructing test edges= 0000/0204
+Constructing val edges= 0000/0204
+Train edges= 0613
+Val edges= 0204
+Test edges= 0204
+Minibatch edge type: (1, 1, 5)
+Constructing test edges= 0000/0050
+Constructing val edges= 0000/0050
+Train edges= 0048
+Val edges= 0050
+Test edges= 0050
+Minibatch edge type: (1, 1, 6)
+Constructing val edges= 0000/0039
+Train edges= 0000
+Val edges= 0039
+Test edges= 0000
+Minibatch edge type: (1, 1, 7)
+Constructing test edges= 0000/0587
+Constructing val edges= 0000/0587
+Train edges= 1761
+Val edges= 0587
+Test edges= 0587
+Minibatch edge type: (1, 1, 8)
+Constructing test edges= 0000/0897
+Constructing val edges= 0000/0897
+Train edges= 2691
+Val edges= 0897
+Test edges= 0897
+Minibatch edge type: (1, 1, 9)
+Constructing test edges= 0000/0596
+Constructing val edges= 0000/0596
+Train edges= 1792
+Val edges= 0596
+Test edges= 0596
+Minibatch edge type: (1, 1, 10)
+Constructing test edges= 0000/0502
+Constructing val edges= 0000/0502
+Train edges= 1507
+Val edges= 0502
+Test edges= 0502
+Minibatch edge type: (1, 1, 11)
+Constructing test edges= 0000/2228
+Constructing test edges= 1000/2228
+Constructing test edges= 2000/2228
+Constructing val edges= 0000/2228
+Constructing val edges= 1000/2228
+Constructing val edges= 2000/2228
+Train edges= 6686
+Val edges= 2228
+Test edges= 2228
+Minibatch edge type: (1, 1, 12)
+Constructing test edges= 0000/0202
+Constructing val edges= 0000/0202
+Train edges= 0609
+Val edges= 0202
+Test edges= 0202
+Minibatch edge type: (1, 1, 13)
+Constructing test edges= 0000/0216
+Constructing val edges= 0000/0216
+Train edges= 0652
+Val edges= 0216
+Test edges= 0216
+Minibatch edge type: (1, 1, 14)
+Constructing test edges= 0000/0235
+Constructing val edges= 0000/0235
+Train edges= 0706
+Val edges= 0235
+Test edges= 0235
+Minibatch edge type: (1, 1, 15)
+Constructing test edges= 0000/0204
+Constructing val edges= 0000/0204
+Train edges= 0613
+Val edges= 0204
+Test edges= 0204
+Minibatch edge type: (1, 1, 16)
+Constructing test edges= 0000/0050
+Constructing val edges= 0000/0050
+Train edges= 0048
+Val edges= 0050
+Test edges= 0050
+Minibatch edge type: (1, 1, 17)
+Constructing val edges= 0000/0039
+Train edges= 0000
+Val edges= 0039
+Test edges= 0000
+Minibatch edge type: (1, 1, 18)
+Constructing test edges= 0000/0587
+Constructing val edges= 0000/0587
+Train edges= 1761
+Val edges= 0587
+Test edges= 0587
+Minibatch edge type: (1, 1, 19)
+Constructing test edges= 0000/0897
+Constructing val edges= 0000/0897
+Train edges= 2691
+Val edges= 0897
+Test edges= 0897
+Minibatch edge type: (1, 1, 20)
+Constructing test edges= 0000/0596
+Constructing val edges= 0000/0596
+Train edges= 1792
+Val edges= 0596
+Test edges= 0596
+Minibatch edge type: (1, 1, 21)
+Constructing test edges= 0000/0502
+Constructing val edges= 0000/0502
+Train edges= 1507
+Val edges= 0502
+Test edges= 0502
+Create model
+Create optimizer
+Initialize session
+Train model
+Epoch: 0001 Iter: 0001 Edge: 0000 train_loss= 51.49175 val_roc= 0.70813 val_auprc= 0.69686 val_apk= 0.74174 time= 27.68472
+Epoch: 0001 Iter: 0151 Edge: 0003 train_loss= 4.10844 val_roc= 0.99299 val_auprc= 0.99377 val_apk= 1.00000 time= 1.64138
+Epoch: 0001 Iter: 0301 Edge: 0000 train_loss= 14.81119 val_roc= 0.84728 val_auprc= 0.81054 val_apk= 0.96554 time= 24.49435
+Epoch: 0001 Iter: 0451 Edge: 0003 train_loss= 4.02732 val_roc= 0.99373 val_auprc= 0.99447 val_apk= 1.00000 time= 1.65406
+Epoch: 0001 Iter: 0601 Edge: 0000 train_loss= 11.92946 val_roc= 0.87709 val_auprc= 0.85392 val_apk= 0.95992 time= 24.45803
+Epoch: 0001 Iter: 0751 Edge: 0003 train_loss= 4.54208 val_roc= 0.99431 val_auprc= 0.99469 val_apk= 1.00000 time= 1.66760
+Epoch: 0001 Iter: 0901 Edge: 0000 train_loss= 10.87831 val_roc= 0.88853 val_auprc= 0.86665 val_apk= 0.77249 time= 24.56171
+Epoch: 0001 Iter: 1051 Edge: 0003 train_loss= 3.93412 val_roc= 0.99498 val_auprc= 0.99513 val_apk= 1.00000 time= 1.65942
+Epoch: 0001 Iter: 1201 Edge: 0000 train_loss= 12.14292 val_roc= 0.89343 val_auprc= 0.87219 val_apk= 0.97607 time= 24.58594
+Epoch: 0001 Iter: 1351 Edge: 0003 train_loss= 3.51314 val_roc= 0.99520 val_auprc= 0.99529 val_apk= 1.00000 time= 1.66766
+Epoch: 0001 Iter: 1501 Edge: 0000 train_loss= 10.04922 val_roc= 0.90026 val_auprc= 0.88368 val_apk= 1.00000 time= 24.46672
+Epoch: 0001 Iter: 1651 Edge: 0003 train_loss= 3.61817 val_roc= 0.99558 val_auprc= 0.99519 val_apk= 1.00000 time= 1.68373
+Epoch: 0001 Iter: 1801 Edge: 0000 train_loss= 9.52909 val_roc= 0.90532 val_auprc= 0.89133 val_apk= 0.94187 time= 24.44528
+Epoch: 0001 Iter: 1951 Edge: 0003 train_loss= 2.65425 val_roc= 0.99564 val_auprc= 0.99495 val_apk= 1.00000 time= 1.66857
+Epoch: 0001 Iter: 2101 Edge: 0000 train_loss= 9.27933 val_roc= 0.90512 val_auprc= 0.88930 val_apk= 0.92668 time= 24.58430
+Epoch: 0001 Iter: 2251 Edge: 0003 train_loss= 2.13490 val_roc= 0.99577 val_auprc= 0.99562 val_apk= 1.00000 time= 1.66418
+Epoch: 0001 Iter: 2401 Edge: 0000 train_loss= 10.56697 val_roc= 0.91358 val_auprc= 0.90058 val_apk= 0.93168 time= 24.64893
+Epoch: 0001 Iter: 2551 Edge: 0003 train_loss= 4.13787 val_roc= 0.99524 val_auprc= 0.99529 val_apk= 1.00000 time= 1.65968
+Epoch: 0001 Iter: 2701 Edge: 0000 train_loss= 9.23722 val_roc= 0.91260 val_auprc= 0.89890 val_apk= 0.90760 time= 24.38337
+Epoch: 0001 Iter: 2851 Edge: 0003 train_loss= 3.55062 val_roc= 0.99527 val_auprc= 0.99539 val_apk= 1.00000 time= 1.65640
+Epoch: 0001 Iter: 3001 Edge: 0000 train_loss= 8.56482 val_roc= 0.91179 val_auprc= 0.89834 val_apk= 1.00000 time= 24.58711
+Epoch: 0001 Iter: 3151 Edge: 0003 train_loss= 3.74108 val_roc= 0.99614 val_auprc= 0.99638 val_apk= 1.00000 time= 1.68210
+Epoch: 0001 Iter: 3301 Edge: 0000 train_loss= 8.25572 val_roc= 0.92445 val_auprc= 0.91396 val_apk= 1.00000 time= 24.31915
+Epoch: 0001 Iter: 3451 Edge: 0003 train_loss= 3.43199 val_roc= 0.99531 val_auprc= 0.99518 val_apk= 1.00000 time= 1.75382
+Epoch: 0002 Iter: 0001 Edge: 0000 train_loss= 7.62118 val_roc= 0.92033 val_auprc= 0.91116 val_apk= 1.00000 time= 24.44238
+Epoch: 0002 Iter: 0151 Edge: 0003 train_loss= 3.34762 val_roc= 0.99483 val_auprc= 0.99457 val_apk= 1.00000 time= 1.68228
+Epoch: 0002 Iter: 0301 Edge: 0000 train_loss= 8.87616 val_roc= 0.92677 val_auprc= 0.91888 val_apk= 1.00000 time= 24.38565
+Epoch: 0002 Iter: 0451 Edge: 0003 train_loss= 4.10759 val_roc= 0.99443 val_auprc= 0.99345 val_apk= 1.00000 time= 1.66554
+Epoch: 0002 Iter: 0601 Edge: 0000 train_loss= 9.08042 val_roc= 0.92092 val_auprc= 0.90951 val_apk= 1.00000 time= 24.36561
+Epoch: 0002 Iter: 0751 Edge: 0003 train_loss= 4.09834 val_roc= 0.99444 val_auprc= 0.99317 val_apk= 0.96097 time= 1.67980
+Epoch: 0002 Iter: 0901 Edge: 0000 train_loss= 8.85216 val_roc= 0.92209 val_auprc= 0.91310 val_apk= 1.00000 time= 24.26233
+Epoch: 0002 Iter: 1051 Edge: 0003 train_loss= 4.88628 val_roc= 0.99414 val_auprc= 0.99270 val_apk= 0.97295 time= 1.67682
+Epoch: 0002 Iter: 1201 Edge: 0000 train_loss= 8.98941 val_roc= 0.92870 val_auprc= 0.91828 val_apk= 1.00000 time= 24.38904
+Epoch: 0002 Iter: 1351 Edge: 0003 train_loss= 3.45893 val_roc= 0.99541 val_auprc= 0.99495 val_apk= 1.00000 time= 1.66904
+Epoch: 0002 Iter: 1501 Edge: 0000 train_loss= 8.30806 val_roc= 0.92666 val_auprc= 0.91492 val_apk= 0.95505 time= 24.33282
+Epoch: 0002 Iter: 1651 Edge: 0003 train_loss= 4.29743 val_roc= 0.99462 val_auprc= 0.99395 val_apk= 1.00000 time= 1.65766
+Epoch: 0002 Iter: 1801 Edge: 0000 train_loss= 8.68788 val_roc= 0.92199 val_auprc= 0.91100 val_apk= 1.00000 time= 24.34020
+Epoch: 0002 Iter: 1951 Edge: 0003 train_loss= 3.17727 val_roc= 0.99515 val_auprc= 0.99449 val_apk= 1.00000 time= 1.66114
+Epoch: 0002 Iter: 2101 Edge: 0000 train_loss= 7.16151 val_roc= 0.93058 val_auprc= 0.92110 val_apk= 0.97747 time= 24.34338
+Epoch: 0002 Iter: 2251 Edge: 0003 train_loss= 3.57313 val_roc= 0.99538 val_auprc= 0.99520 val_apk= 1.00000 time= 1.66599
+Epoch: 0002 Iter: 2401 Edge: 0000 train_loss= 8.01474 val_roc= 0.92879 val_auprc= 0.91893 val_apk= 1.00000 time= 24.44493
+Epoch: 0002 Iter: 2551 Edge: 0003 train_loss= 2.85549 val_roc= 0.99467 val_auprc= 0.99371 val_apk= 1.00000 time= 1.65333
+Epoch: 0002 Iter: 2701 Edge: 0000 train_loss= 8.89088 val_roc= 0.92371 val_auprc= 0.91143 val_apk= 1.00000 time= 24.28762
+Epoch: 0002 Iter: 2851 Edge: 0003 train_loss= 3.48977 val_roc= 0.99525 val_auprc= 0.99444 val_apk= 1.00000 time= 1.68050
+Epoch: 0002 Iter: 3001 Edge: 0000 train_loss= 7.24774 val_roc= 0.93550 val_auprc= 0.92837 val_apk= 1.00000 time= 24.47439
+Epoch: 0002 Iter: 3151 Edge: 0003 train_loss= 3.17451 val_roc= 0.99478 val_auprc= 0.99422 val_apk= 1.00000 time= 1.65687
+Epoch: 0002 Iter: 3301 Edge: 0000 train_loss= 8.73933 val_roc= 0.92905 val_auprc= 0.92029 val_apk= 1.00000 time= 24.30243
+Epoch: 0002 Iter: 3451 Edge: 0003 train_loss= 2.87385 val_roc= 0.99457 val_auprc= 0.99372 val_apk= 1.00000 time= 1.74684
+Epoch: 0003 Iter: 0001 Edge: 0000 train_loss= 6.65553 val_roc= 0.93165 val_auprc= 0.92378 val_apk= 0.98000 time= 24.32724
+Epoch: 0003 Iter: 0151 Edge: 0003 train_loss= 2.84015 val_roc= 0.99354 val_auprc= 0.99213 val_apk= 0.95992 time= 1.67347
+Epoch: 0003 Iter: 0301 Edge: 0000 train_loss= 8.09516 val_roc= 0.93219 val_auprc= 0.92234 val_apk= 1.00000 time= 24.35336
+Epoch: 0003 Iter: 0451 Edge: 0003 train_loss= 3.23482 val_roc= 0.99390 val_auprc= 0.99285 val_apk= 0.95881 time= 1.66748
+Epoch: 0003 Iter: 0601 Edge: 0000 train_loss= 6.40437 val_roc= 0.93367 val_auprc= 0.92472 val_apk= 1.00000 time= 24.40199
+Epoch: 0003 Iter: 0751 Edge: 0003 train_loss= 3.41537 val_roc= 0.99428 val_auprc= 0.99345 val_apk= 0.96634 time= 1.66263
+Epoch: 0003 Iter: 0901 Edge: 0000 train_loss= 6.43772 val_roc= 0.93534 val_auprc= 0.92736 val_apk= 0.95418 time= 24.46165
+Epoch: 0003 Iter: 1051 Edge: 0003 train_loss= 3.50918 val_roc= 0.99467 val_auprc= 0.99430 val_apk= 1.00000 time= 1.65645
+Epoch: 0003 Iter: 1201 Edge: 0000 train_loss= 7.32473 val_roc= 0.93604 val_auprc= 0.92659 val_apk= 1.00000 time= 24.40311
+Epoch: 0003 Iter: 1351 Edge: 0003 train_loss= 5.87199 val_roc= 0.99517 val_auprc= 0.99527 val_apk= 1.00000 time= 1.66862
+Epoch: 0003 Iter: 1501 Edge: 0000 train_loss= 7.19817 val_roc= 0.93680 val_auprc= 0.92959 val_apk= 1.00000 time= 24.28550
+Epoch: 0003 Iter: 1651 Edge: 0003 train_loss= 2.64812 val_roc= 0.99491 val_auprc= 0.99482 val_apk= 1.00000 time= 1.65184
+Epoch: 0003 Iter: 1801 Edge: 0000 train_loss= 7.71414 val_roc= 0.93865 val_auprc= 0.93035 val_apk= 1.00000 time= 24.46618
+Epoch: 0003 Iter: 1951 Edge: 0003 train_loss= 4.27564 val_roc= 0.99391 val_auprc= 0.99363 val_apk= 1.00000 time= 1.66270
+Epoch: 0003 Iter: 2101 Edge: 0000 train_loss= 6.35902 val_roc= 0.93973 val_auprc= 0.93265 val_apk= 1.00000 time= 24.37308
+Epoch: 0003 Iter: 2251 Edge: 0003 train_loss= 2.47951 val_roc= 0.99239 val_auprc= 0.99150 val_apk= 1.00000 time= 1.66158
+Epoch: 0003 Iter: 2401 Edge: 0000 train_loss= 6.03622 val_roc= 0.93662 val_auprc= 0.92810 val_apk= 1.00000 time= 24.39268
+Epoch: 0003 Iter: 2551 Edge: 0003 train_loss= 2.79708 val_roc= 0.99453 val_auprc= 0.99417 val_apk= 1.00000 time= 1.66295
+Epoch: 0003 Iter: 2701 Edge: 0000 train_loss= 8.34745 val_roc= 0.93918 val_auprc= 0.93254 val_apk= 1.00000 time= 24.32783
+Epoch: 0003 Iter: 2851 Edge: 0003 train_loss= 3.00769 val_roc= 0.99354 val_auprc= 0.99313 val_apk= 1.00000 time= 1.66917
+Epoch: 0003 Iter: 3001 Edge: 0000 train_loss= 7.93944 val_roc= 0.94027 val_auprc= 0.93316 val_apk= 1.00000 time= 24.41372
+Epoch: 0003 Iter: 3151 Edge: 0003 train_loss= 2.92731 val_roc= 0.99397 val_auprc= 0.99258 val_apk= 0.94437 time= 1.66781
+Epoch: 0003 Iter: 3301 Edge: 0000 train_loss= 7.16414 val_roc= 0.93813 val_auprc= 0.93094 val_apk= 1.00000 time= 24.36784
+Epoch: 0003 Iter: 3451 Edge: 0003 train_loss= 2.82292 val_roc= 0.99437 val_auprc= 0.99401 val_apk= 1.00000 time= 1.66763
+Epoch: 0004 Iter: 0001 Edge: 0000 train_loss= 6.77799 val_roc= 0.93825 val_auprc= 0.92999 val_apk= 1.00000 time= 24.47601
+Epoch: 0004 Iter: 0151 Edge: 0003 train_loss= 3.27358 val_roc= 0.99473 val_auprc= 0.99326 val_apk= 0.95992 time= 1.66958
+Epoch: 0004 Iter: 0301 Edge: 0000 train_loss= 6.40316 val_roc= 0.94352 val_auprc= 0.93777 val_apk= 1.00000 time= 24.37287
+Epoch: 0004 Iter: 0451 Edge: 0003 train_loss= 2.47016 val_roc= 0.99459 val_auprc= 0.99344 val_apk= 0.97747 time= 1.66568
+Epoch: 0004 Iter: 0601 Edge: 0000 train_loss= 5.66009 val_roc= 0.93888 val_auprc= 0.93099 val_apk= 1.00000 time= 24.50469
+Epoch: 0004 Iter: 0751 Edge: 0003 train_loss= 3.81124 val_roc= 0.99460 val_auprc= 0.99338 val_apk= 0.96097 time= 1.65926
+Epoch: 0004 Iter: 0901 Edge: 0000 train_loss= 6.79550 val_roc= 0.94089 val_auprc= 0.93406 val_apk= 1.00000 time= 24.50057
+Epoch: 0004 Iter: 1051 Edge: 0003 train_loss= 4.12772 val_roc= 0.99520 val_auprc= 0.99408 val_apk= 0.96197 time= 1.66571
+Epoch: 0004 Iter: 1201 Edge: 0000 train_loss= 7.92773 val_roc= 0.94106 val_auprc= 0.93339 val_apk= 1.00000 time= 24.41688
+Epoch: 0004 Iter: 1351 Edge: 0003 train_loss= 2.80800 val_roc= 0.99462 val_auprc= 0.99334 val_apk= 0.96710 time= 1.67101
+Epoch: 0004 Iter: 1501 Edge: 0000 train_loss= 6.39621 val_roc= 0.93649 val_auprc= 0.92895 val_apk= 1.00000 time= 24.37970
+Epoch: 0004 Iter: 1651 Edge: 0003 train_loss= 2.99666 val_roc= 0.99447 val_auprc= 0.99342 val_apk= 1.00000 time= 1.68407
+Epoch: 0004 Iter: 1801 Edge: 0000 train_loss= 9.01221 val_roc= 0.94087 val_auprc= 0.93462 val_apk= 1.00000 time= 24.48346
+Epoch: 0004 Iter: 1951 Edge: 0003 train_loss= 2.43604 val_roc= 0.99489 val_auprc= 0.99363 val_apk= 1.00000 time= 1.65995
+Epoch: 0004 Iter: 2101 Edge: 0000 train_loss= 5.12343 val_roc= 0.94075 val_auprc= 0.93314 val_apk= 1.00000 time= 24.47399
+Epoch: 0004 Iter: 2251 Edge: 0003 train_loss= 4.07876 val_roc= 0.99518 val_auprc= 0.99392 val_apk= 0.97457 time= 1.66926
+Epoch: 0004 Iter: 2401 Edge: 0000 train_loss= 5.74860 val_roc= 0.93626 val_auprc= 0.92696 val_apk= 1.00000 time= 24.42127
+Epoch: 0004 Iter: 2551 Edge: 0003 train_loss= 3.40800 val_roc= 0.99520 val_auprc= 0.99467 val_apk= 1.00000 time= 1.64753
+Epoch: 0004 Iter: 2701 Edge: 0000 train_loss= 7.07895 val_roc= 0.93705 val_auprc= 0.92831 val_apk= 1.00000 time= 24.36238
+Epoch: 0004 Iter: 2851 Edge: 0003 train_loss= 3.12138 val_roc= 0.99479 val_auprc= 0.99425 val_apk= 1.00000 time= 1.66363
+Epoch: 0004 Iter: 3001 Edge: 0000 train_loss= 5.85160 val_roc= 0.93973 val_auprc= 0.93231 val_apk= 1.00000 time= 24.49177
+Epoch: 0004 Iter: 3151 Edge: 0003 train_loss= 2.37628 val_roc= 0.99427 val_auprc= 0.99367 val_apk= 1.00000 time= 1.67203
+Epoch: 0004 Iter: 3301 Edge: 0000 train_loss= 7.70108 val_roc= 0.93818 val_auprc= 0.92909 val_apk= 1.00000 time= 24.50672
+Epoch: 0004 Iter: 3451 Edge: 0003 train_loss= 1.96858 val_roc= 0.99483 val_auprc= 0.99439 val_apk= 1.00000 time= 1.65028
+Epoch: 0005 Iter: 0001 Edge: 0000 train_loss= 7.80009 val_roc= 0.93959 val_auprc= 0.93178 val_apk= 1.00000 time= 24.00996
+Epoch: 0005 Iter: 0151 Edge: 0003 train_loss= 1.37250 val_roc= 0.99430 val_auprc= 0.99308 val_apk= 0.97179 time= 1.70414
+Epoch: 0005 Iter: 0301 Edge: 0000 train_loss= 8.76497 val_roc= 0.94259 val_auprc= 0.93580 val_apk= 1.00000 time= 24.22895
+Epoch: 0005 Iter: 0451 Edge: 0003 train_loss= 3.91587 val_roc= 0.99505 val_auprc= 0.99434 val_apk= 1.00000 time= 1.65016
+Epoch: 0005 Iter: 0601 Edge: 0000 train_loss= 5.79513 val_roc= 0.94318 val_auprc= 0.93661 val_apk= 1.00000 time= 24.35659
+Epoch: 0005 Iter: 0751 Edge: 0003 train_loss= 2.50922 val_roc= 0.99456 val_auprc= 0.99410 val_apk= 1.00000 time= 1.67024
+Epoch: 0005 Iter: 0901 Edge: 0000 train_loss= 4.95102 val_roc= 0.94299 val_auprc= 0.93644 val_apk= 1.00000 time= 24.39056
+Epoch: 0005 Iter: 1051 Edge: 0003 train_loss= 3.13460 val_roc= 0.99523 val_auprc= 0.99527 val_apk= 1.00000 time= 1.65054
+Epoch: 0005 Iter: 1201 Edge: 0000 train_loss= 6.38249 val_roc= 0.94276 val_auprc= 0.93453 val_apk= 1.00000 time= 24.40290
+Epoch: 0005 Iter: 1351 Edge: 0003 train_loss= 2.87854 val_roc= 0.99578 val_auprc= 0.99547 val_apk= 1.00000 time= 1.67151
+Epoch: 0005 Iter: 1501 Edge: 0000 train_loss= 6.02579 val_roc= 0.93498 val_auprc= 0.92536 val_apk= 1.00000 time= 24.30403
+Epoch: 0005 Iter: 1651 Edge: 0003 train_loss= 2.44530 val_roc= 0.99542 val_auprc= 0.99505 val_apk= 1.00000 time= 1.65140
+Epoch: 0005 Iter: 1801 Edge: 0000 train_loss= 6.46344 val_roc= 0.93712 val_auprc= 0.92875 val_apk= 1.00000 time= 24.43760
+Epoch: 0005 Iter: 1951 Edge: 0003 train_loss= 2.17630 val_roc= 0.99485 val_auprc= 0.99454 val_apk= 1.00000 time= 1.64353
+Epoch: 0005 Iter: 2101 Edge: 0000 train_loss= 6.88007 val_roc= 0.93680 val_auprc= 0.92913 val_apk= 1.00000 time= 24.40228
+Epoch: 0005 Iter: 2251 Edge: 0003 train_loss= 2.46782 val_roc= 0.99453 val_auprc= 0.99416 val_apk= 1.00000 time= 1.65750
+Epoch: 0005 Iter: 2401 Edge: 0000 train_loss= 6.51539 val_roc= 0.93740 val_auprc= 0.92713 val_apk= 1.00000 time= 24.34946
+Epoch: 0005 Iter: 2551 Edge: 0003 train_loss= 2.89968 val_roc= 0.99555 val_auprc= 0.99542 val_apk= 1.00000 time= 1.65896
+Epoch: 0005 Iter: 2701 Edge: 0000 train_loss= 6.56036 val_roc= 0.94114 val_auprc= 0.93362 val_apk= 1.00000 time= 24.00383
+Epoch: 0005 Iter: 2851 Edge: 0003 train_loss= 2.02345 val_roc= 0.99559 val_auprc= 0.99556 val_apk= 1.00000 time= 1.61767
+Epoch: 0005 Iter: 3001 Edge: 0000 train_loss= 6.07298 val_roc= 0.93460 val_auprc= 0.92372 val_apk= 1.00000 time= 24.49121
+Epoch: 0005 Iter: 3151 Edge: 0003 train_loss= 3.96010 val_roc= 0.99571 val_auprc= 0.99566 val_apk= 1.00000 time= 1.65889
+Epoch: 0005 Iter: 3301 Edge: 0000 train_loss= 6.19780 val_roc= 0.94118 val_auprc= 0.93275 val_apk= 1.00000 time= 24.39297
+Epoch: 0005 Iter: 3451 Edge: 0003 train_loss= 3.55752 val_roc= 0.99526 val_auprc= 0.99520 val_apk= 1.00000 time= 1.67067
+Epoch: 0006 Iter: 0001 Edge: 0000 train_loss= 5.56457 val_roc= 0.94454 val_auprc= 0.93738 val_apk= 1.00000 time= 24.01280
+Epoch: 0006 Iter: 0151 Edge: 0003 train_loss= 4.35230 val_roc= 0.99457 val_auprc= 0.99352 val_apk= 0.97179 time= 1.66429
+Epoch: 0006 Iter: 0301 Edge: 0000 train_loss= 8.30352 val_roc= 0.94356 val_auprc= 0.93633 val_apk= 1.00000 time= 23.65316
+Epoch: 0006 Iter: 0451 Edge: 0003 train_loss= 3.59097 val_roc= 0.99488 val_auprc= 0.99413 val_apk= 1.00000 time= 1.62037
+Epoch: 0006 Iter: 0601 Edge: 0000 train_loss= 5.56122 val_roc= 0.94227 val_auprc= 0.93472 val_apk= 1.00000 time= 23.64763
+Epoch: 0006 Iter: 0751 Edge: 0003 train_loss= 2.83186 val_roc= 0.99393 val_auprc= 0.99272 val_apk= 0.97878 time= 1.60942
+Epoch: 0006 Iter: 0901 Edge: 0000 train_loss= 6.50842 val_roc= 0.94423 val_auprc= 0.93662 val_apk= 1.00000 time= 24.35301
+Epoch: 0006 Iter: 1051 Edge: 0003 train_loss= 3.79677 val_roc= 0.99398 val_auprc= 0.99298 val_apk= 1.00000 time= 1.65452
+Epoch: 0006 Iter: 1201 Edge: 0000 train_loss= 5.70047 val_roc= 0.94794 val_auprc= 0.94234 val_apk= 1.00000 time= 24.40219
+Epoch: 0006 Iter: 1351 Edge: 0003 train_loss= 3.28095 val_roc= 0.99383 val_auprc= 0.99292 val_apk= 1.00000 time= 1.65484
+Epoch: 0006 Iter: 1501 Edge: 0000 train_loss= 7.39842 val_roc= 0.94379 val_auprc= 0.93605 val_apk= 0.94860 time= 24.25085
+Epoch: 0006 Iter: 1651 Edge: 0003 train_loss= 5.81100 val_roc= 0.99185 val_auprc= 0.98995 val_apk= 1.00000 time= 1.60505
+Epoch: 0006 Iter: 1801 Edge: 0000 train_loss= 6.38857 val_roc= 0.94221 val_auprc= 0.93319 val_apk= 1.00000 time= 24.35508
+Epoch: 0006 Iter: 1951 Edge: 0003 train_loss= 3.72194 val_roc= 0.99395 val_auprc= 0.99304 val_apk= 1.00000 time= 1.68136
+Epoch: 0006 Iter: 2101 Edge: 0000 train_loss= 5.50550 val_roc= 0.94240 val_auprc= 0.93441 val_apk= 0.94589 time= 24.35186
+Epoch: 0006 Iter: 2251 Edge: 0003 train_loss= 3.05627 val_roc= 0.99381 val_auprc= 0.99249 val_apk= 1.00000 time= 1.61597
+Epoch: 0006 Iter: 2401 Edge: 0000 train_loss= 7.84063 val_roc= 0.94458 val_auprc= 0.93791 val_apk= 1.00000 time= 23.94808
+Epoch: 0006 Iter: 2551 Edge: 0003 train_loss= 3.29406 val_roc= 0.99410 val_auprc= 0.99337 val_apk= 1.00000 time= 1.64316
+Epoch: 0006 Iter: 2701 Edge: 0000 train_loss= 6.51497 val_roc= 0.94705 val_auprc= 0.94076 val_apk= 0.97238 time= 24.11847
+Epoch: 0006 Iter: 2851 Edge: 0003 train_loss= 3.86269 val_roc= 0.99415 val_auprc= 0.99371 val_apk= 1.00000 time= 1.62860
+Epoch: 0006 Iter: 3001 Edge: 0000 train_loss= 5.74904 val_roc= 0.94838 val_auprc= 0.94244 val_apk= 1.00000 time= 24.34195
+Epoch: 0006 Iter: 3151 Edge: 0003 train_loss= 2.85692 val_roc= 0.99396 val_auprc= 0.99291 val_apk= 1.00000 time= 1.63221
+Epoch: 0006 Iter: 3301 Edge: 0000 train_loss= 7.11265 val_roc= 0.94864 val_auprc= 0.94292 val_apk= 1.00000 time= 24.10667
+Epoch: 0006 Iter: 3451 Edge: 0003 train_loss= 3.31902 val_roc= 0.99443 val_auprc= 0.99427 val_apk= 1.00000 time= 1.65691
+Epoch: 0007 Iter: 0001 Edge: 0000 train_loss= 5.35640 val_roc= 0.94885 val_auprc= 0.94257 val_apk= 0.97835 time= 24.19162
+Epoch: 0007 Iter: 0151 Edge: 0003 train_loss= 2.45889 val_roc= 0.99446 val_auprc= 0.99375 val_apk= 1.00000 time= 1.67666
+Epoch: 0007 Iter: 0301 Edge: 0000 train_loss= 6.07155 val_roc= 0.94574 val_auprc= 0.93865 val_apk= 0.95763 time= 24.30957
+Epoch: 0007 Iter: 0451 Edge: 0003 train_loss= 3.45353 val_roc= 0.99399 val_auprc= 0.99310 val_apk= 1.00000 time= 1.65250
+Epoch: 0007 Iter: 0601 Edge: 0000 train_loss= 6.99364 val_roc= 0.94678 val_auprc= 0.94009 val_apk= 0.95505 time= 24.49626
+Epoch: 0007 Iter: 0751 Edge: 0003 train_loss= 2.92299 val_roc= 0.99427 val_auprc= 0.99357 val_apk= 1.00000 time= 1.64975
+Epoch: 0007 Iter: 0901 Edge: 0000 train_loss= 5.83116 val_roc= 0.94744 val_auprc= 0.94067 val_apk= 1.00000 time= 24.40798
+Epoch: 0007 Iter: 1051 Edge: 0003 train_loss= 2.49577 val_roc= 0.99378 val_auprc= 0.99327 val_apk= 1.00000 time= 1.64668
+Epoch: 0007 Iter: 1201 Edge: 0000 train_loss= 4.50939 val_roc= 0.94947 val_auprc= 0.94401 val_apk= 1.00000 time= 24.02425
+Epoch: 0007 Iter: 1351 Edge: 0003 train_loss= 2.05335 val_roc= 0.99421 val_auprc= 0.99348 val_apk= 1.00000 time= 1.64883
+Epoch: 0007 Iter: 1501 Edge: 0000 train_loss= 7.60064 val_roc= 0.94336 val_auprc= 0.93560 val_apk= 0.95505 time= 23.90449
+Epoch: 0007 Iter: 1651 Edge: 0003 train_loss= 3.42293 val_roc= 0.99540 val_auprc= 0.99503 val_apk= 1.00000 time= 1.65359
+Epoch: 0007 Iter: 1801 Edge: 0000 train_loss= 6.03236 val_roc= 0.94351 val_auprc= 0.93590 val_apk= 0.97607 time= 24.43677
+Epoch: 0007 Iter: 1951 Edge: 0003 train_loss= 3.03124 val_roc= 0.99448 val_auprc= 0.99417 val_apk= 1.00000 time= 1.59094
+Epoch: 0007 Iter: 2101 Edge: 0000 train_loss= 6.31496 val_roc= 0.95119 val_auprc= 0.94684 val_apk= 1.00000 time= 24.29638
+Epoch: 0007 Iter: 2251 Edge: 0003 train_loss= 2.60953 val_roc= 0.99458 val_auprc= 0.99429 val_apk= 1.00000 time= 1.58751
+Epoch: 0007 Iter: 2401 Edge: 0000 train_loss= 5.74237 val_roc= 0.94831 val_auprc= 0.94265 val_apk= 1.00000 time= 24.06459
+Epoch: 0007 Iter: 2551 Edge: 0003 train_loss= 3.25636 val_roc= 0.99401 val_auprc= 0.99382 val_apk= 1.00000 time= 1.66299
+Epoch: 0007 Iter: 2701 Edge: 0000 train_loss= 6.37596 val_roc= 0.95006 val_auprc= 0.94453 val_apk= 1.00000 time= 24.00113
+Epoch: 0007 Iter: 2851 Edge: 0003 train_loss= 2.57382 val_roc= 0.99491 val_auprc= 0.99464 val_apk= 1.00000 time= 1.66937
+Epoch: 0007 Iter: 3001 Edge: 0000 train_loss= 8.19363 val_roc= 0.94843 val_auprc= 0.94175 val_apk= 1.00000 time= 24.27802
+Epoch: 0007 Iter: 3151 Edge: 0003 train_loss= 2.80835 val_roc= 0.99421 val_auprc= 0.99342 val_apk= 1.00000 time= 1.65604
+Epoch: 0007 Iter: 3301 Edge: 0000 train_loss= 7.85227 val_roc= 0.94809 val_auprc= 0.94144 val_apk= 1.00000 time= 23.80890
+Epoch: 0007 Iter: 3451 Edge: 0003 train_loss= 2.99959 val_roc= 0.99349 val_auprc= 0.99167 val_apk= 1.00000 time= 1.63755
+Epoch: 0008 Iter: 0001 Edge: 0000 train_loss= 7.28464 val_roc= 0.95024 val_auprc= 0.94461 val_apk= 1.00000 time= 24.15759
+Epoch: 0008 Iter: 0151 Edge: 0003 train_loss= 2.28379 val_roc= 0.99264 val_auprc= 0.99055 val_apk= 1.00000 time= 1.65855
+Epoch: 0008 Iter: 0301 Edge: 0000 train_loss= 7.03866 val_roc= 0.95031 val_auprc= 0.94470 val_apk= 0.97607 time= 23.94943
+Epoch: 0008 Iter: 0451 Edge: 0003 train_loss= 3.66607 val_roc= 0.99422 val_auprc= 0.99242 val_apk= 0.97835 time= 1.65439
+Epoch: 0008 Iter: 0601 Edge: 0000 train_loss= 5.57184 val_roc= 0.95225 val_auprc= 0.94738 val_apk= 1.00000 time= 23.97690
+Epoch: 0008 Iter: 0751 Edge: 0003 train_loss= 2.30575 val_roc= 0.99344 val_auprc= 0.99184 val_apk= 1.00000 time= 1.64716
+Epoch: 0008 Iter: 0901 Edge: 0000 train_loss= 6.65664 val_roc= 0.95081 val_auprc= 0.94568 val_apk= 1.00000 time= 24.22719
+Epoch: 0008 Iter: 1051 Edge: 0003 train_loss= 2.20638 val_roc= 0.99404 val_auprc= 0.99267 val_apk= 1.00000 time= 1.60558
+Epoch: 0008 Iter: 1201 Edge: 0000 train_loss= 6.84783 val_roc= 0.95119 val_auprc= 0.94570 val_apk= 1.00000 time= 24.18623
+Epoch: 0008 Iter: 1351 Edge: 0003 train_loss= 3.06477 val_roc= 0.99416 val_auprc= 0.99297 val_apk= 1.00000 time= 1.58745
+Epoch: 0008 Iter: 1501 Edge: 0000 train_loss= 4.36616 val_roc= 0.95037 val_auprc= 0.94481 val_apk= 1.00000 time= 24.22731
+Epoch: 0008 Iter: 1651 Edge: 0003 train_loss= 3.19168 val_roc= 0.99369 val_auprc= 0.99253 val_apk= 1.00000 time= 1.60569
+Epoch: 0008 Iter: 1801 Edge: 0000 train_loss= 7.32933 val_roc= 0.95090 val_auprc= 0.94523 val_apk= 1.00000 time= 24.44368
+Epoch: 0008 Iter: 1951 Edge: 0003 train_loss= 2.81611 val_roc= 0.99401 val_auprc= 0.99297 val_apk= 1.00000 time= 1.65634
+Epoch: 0008 Iter: 2101 Edge: 0000 train_loss= 5.21961 val_roc= 0.95268 val_auprc= 0.94701 val_apk= 1.00000 time= 24.33086
+Epoch: 0008 Iter: 2251 Edge: 0003 train_loss= 1.76927 val_roc= 0.99432 val_auprc= 0.99324 val_apk= 1.00000 time= 1.65848
+Epoch: 0008 Iter: 2401 Edge: 0000 train_loss= 4.34054 val_roc= 0.95117 val_auprc= 0.94554 val_apk= 1.00000 time= 24.22548
+Epoch: 0008 Iter: 2551 Edge: 0003 train_loss= 3.47992 val_roc= 0.99421 val_auprc= 0.99330 val_apk= 1.00000 time= 1.65326
+Epoch: 0008 Iter: 2701 Edge: 0000 train_loss= 4.23174 val_roc= 0.95025 val_auprc= 0.94461 val_apk= 1.00000 time= 24.07578
+Epoch: 0008 Iter: 2851 Edge: 0003 train_loss= 3.53207 val_roc= 0.99436 val_auprc= 0.99364 val_apk= 1.00000 time= 1.60182
+Epoch: 0008 Iter: 3001 Edge: 0000 train_loss= 6.36648 val_roc= 0.95059 val_auprc= 0.94465 val_apk= 1.00000 time= 24.54757
+Epoch: 0008 Iter: 3151 Edge: 0003 train_loss= 4.20910 val_roc= 0.99430 val_auprc= 0.99367 val_apk= 1.00000 time= 1.64775
+Epoch: 0008 Iter: 3301 Edge: 0000 train_loss= 7.80020 val_roc= 0.94956 val_auprc= 0.94350 val_apk= 1.00000 time= 23.76660
+Epoch: 0008 Iter: 3451 Edge: 0003 train_loss= 2.72007 val_roc= 0.99469 val_auprc= 0.99419 val_apk= 1.00000 time= 1.64371
+Epoch: 0009 Iter: 0001 Edge: 0000 train_loss= 8.92242 val_roc= 0.94943 val_auprc= 0.94353 val_apk= 1.00000 time= 24.68626
+Epoch: 0009 Iter: 0151 Edge: 0003 train_loss= 3.85189 val_roc= 0.99383 val_auprc= 0.99241 val_apk= 1.00000 time= 1.70311
+Epoch: 0009 Iter: 0301 Edge: 0000 train_loss= 4.30473 val_roc= 0.95325 val_auprc= 0.94805 val_apk= 1.00000 time= 24.92814
+Epoch: 0009 Iter: 0451 Edge: 0003 train_loss= 2.42731 val_roc= 0.99373 val_auprc= 0.99259 val_apk= 1.00000 time= 1.70301
+Epoch: 0009 Iter: 0601 Edge: 0000 train_loss= 7.33087 val_roc= 0.95279 val_auprc= 0.94733 val_apk= 1.00000 time= 25.03597
+Epoch: 0009 Iter: 0751 Edge: 0003 train_loss= 3.52926 val_roc= 0.99371 val_auprc= 0.99307 val_apk= 1.00000 time= 1.71617
+Epoch: 0009 Iter: 0901 Edge: 0000 train_loss= 5.50713 val_roc= 0.95201 val_auprc= 0.94646 val_apk= 0.96470 time= 24.90906
+Epoch: 0009 Iter: 1051 Edge: 0003 train_loss= 4.16316 val_roc= 0.99298 val_auprc= 0.99148 val_apk= 1.00000 time= 1.70873
+Epoch: 0009 Iter: 1201 Edge: 0000 train_loss= 4.59753 val_roc= 0.95415 val_auprc= 0.94919 val_apk= 1.00000 time= 25.14349
+Epoch: 0009 Iter: 1351 Edge: 0003 train_loss= 2.65018 val_roc= 0.99365 val_auprc= 0.99238 val_apk= 1.00000 time= 1.72461
+Epoch: 0009 Iter: 1501 Edge: 0000 train_loss= 6.77560 val_roc= 0.95298 val_auprc= 0.94783 val_apk= 0.93568 time= 24.72027
+Epoch: 0009 Iter: 1651 Edge: 0003 train_loss= 3.03466 val_roc= 0.99374 val_auprc= 0.99295 val_apk= 1.00000 time= 1.71192
+Epoch: 0009 Iter: 1801 Edge: 0000 train_loss= 6.38552 val_roc= 0.95313 val_auprc= 0.94794 val_apk= 0.96634 time= 24.74390
+Epoch: 0009 Iter: 1951 Edge: 0003 train_loss= 4.35427 val_roc= 0.99334 val_auprc= 0.99266 val_apk= 1.00000 time= 1.71176
+Epoch: 0009 Iter: 2101 Edge: 0000 train_loss= 5.57610 val_roc= 0.95159 val_auprc= 0.94550 val_apk= 0.92002 time= 24.67626
+Epoch: 0009 Iter: 2251 Edge: 0003 train_loss= 2.78436 val_roc= 0.99375 val_auprc= 0.99336 val_apk= 1.00000 time= 1.69445
+Epoch: 0009 Iter: 2401 Edge: 0000 train_loss= 6.52671 val_roc= 0.95261 val_auprc= 0.94673 val_apk= 0.91002 time= 24.71825
+Epoch: 0009 Iter: 2551 Edge: 0003 train_loss= 3.38766 val_roc= 0.99308 val_auprc= 0.99260 val_apk= 1.00000 time= 1.70874
+Epoch: 0009 Iter: 2701 Edge: 0000 train_loss= 5.53943 val_roc= 0.95434 val_auprc= 0.94915 val_apk= 0.94187 time= 24.67577
+Epoch: 0009 Iter: 2851 Edge: 0003 train_loss= 3.50935 val_roc= 0.99395 val_auprc= 0.99336 val_apk= 1.00000 time= 1.66904
+Epoch: 0009 Iter: 3001 Edge: 0000 train_loss= 5.91592 val_roc= 0.95348 val_auprc= 0.94868 val_apk= 0.95505 time= 24.69143
+Epoch: 0009 Iter: 3151 Edge: 0003 train_loss= 4.76993 val_roc= 0.99403 val_auprc= 0.99398 val_apk= 1.00000 time= 1.71660
+Epoch: 0009 Iter: 3301 Edge: 0000 train_loss= 4.26468 val_roc= 0.95520 val_auprc= 0.95055 val_apk= 0.91002 time= 24.70785
+Epoch: 0009 Iter: 3451 Edge: 0003 train_loss= 2.74260 val_roc= 0.99345 val_auprc= 0.99272 val_apk= 1.00000 time= 1.70042
+Epoch: 0010 Iter: 0001 Edge: 0000 train_loss= 8.71982 val_roc= 0.95441 val_auprc= 0.94947 val_apk= 0.95362 time= 24.75517
+Epoch: 0010 Iter: 0151 Edge: 0003 train_loss= 3.11216 val_roc= 0.99242 val_auprc= 0.99156 val_apk= 1.00000 time= 1.65404
+Epoch: 0010 Iter: 0301 Edge: 0000 train_loss= 7.26702 val_roc= 0.95294 val_auprc= 0.94807 val_apk= 0.92668 time= 24.64381
+Epoch: 0010 Iter: 0451 Edge: 0003 train_loss= 2.31369 val_roc= 0.99282 val_auprc= 0.99228 val_apk= 1.00000 time= 1.71220
+Epoch: 0010 Iter: 0601 Edge: 0000 train_loss= 7.30692 val_roc= 0.95207 val_auprc= 0.94670 val_apk= 0.93168 time= 25.08905
+Epoch: 0010 Iter: 0751 Edge: 0003 train_loss= 3.58576 val_roc= 0.99231 val_auprc= 0.99206 val_apk= 1.00000 time= 1.68706
+Epoch: 0010 Iter: 0901 Edge: 0000 train_loss= 6.79049 val_roc= 0.95430 val_auprc= 0.94905 val_apk= 0.95041 time= 24.87527
+Epoch: 0010 Iter: 1051 Edge: 0003 train_loss= 2.81635 val_roc= 0.99318 val_auprc= 0.99293 val_apk= 1.00000 time= 1.66374
+Epoch: 0010 Iter: 1201 Edge: 0000 train_loss= 8.05468 val_roc= 0.95407 val_auprc= 0.94941 val_apk= 0.92002 time= 24.81503
+Epoch: 0010 Iter: 1351 Edge: 0003 train_loss= 3.11834 val_roc= 0.99400 val_auprc= 0.99390 val_apk= 1.00000 time= 1.83655
+Epoch: 0010 Iter: 1501 Edge: 0000 train_loss= 6.04112 val_roc= 0.95577 val_auprc= 0.95113 val_apk= 0.91002 time= 25.07969
+Epoch: 0010 Iter: 1651 Edge: 0003 train_loss= 3.82522 val_roc= 0.99411 val_auprc= 0.99436 val_apk= 1.00000 time= 1.71004
+Epoch: 0010 Iter: 1801 Edge: 0000 train_loss= 5.75867 val_roc= 0.95224 val_auprc= 0.94628 val_apk= 0.93902 time= 24.97862
+Epoch: 0010 Iter: 1951 Edge: 0003 train_loss= 2.68279 val_roc= 0.99343 val_auprc= 0.99333 val_apk= 1.00000 time= 1.71022
+Epoch: 0010 Iter: 2101 Edge: 0000 train_loss= 4.93253 val_roc= 0.95285 val_auprc= 0.94668 val_apk= 0.91002 time= 25.04320
+Epoch: 0010 Iter: 2251 Edge: 0003 train_loss= 3.59433 val_roc= 0.99315 val_auprc= 0.99283 val_apk= 1.00000 time= 1.71830
+Epoch: 0010 Iter: 2401 Edge: 0000 train_loss= 7.35612 val_roc= 0.95515 val_auprc= 0.95008 val_apk= 0.97509 time= 24.44072
+Epoch: 0010 Iter: 2551 Edge: 0003 train_loss= 3.18373 val_roc= 0.99352 val_auprc= 0.99313 val_apk= 1.00000 time= 1.70224
+Epoch: 0010 Iter: 2701 Edge: 0000 train_loss= 6.12911 val_roc= 0.95471 val_auprc= 0.94928 val_apk= 0.95505 time= 24.29865
+Epoch: 0010 Iter: 2851 Edge: 0003 train_loss= 2.87773 val_roc= 0.99455 val_auprc= 0.99440 val_apk= 1.00000 time= 1.69536
+Epoch: 0010 Iter: 3001 Edge: 0000 train_loss= 6.22159 val_roc= 0.95383 val_auprc= 0.94869 val_apk= 0.93568 time= 24.77554
+Epoch: 0010 Iter: 3151 Edge: 0003 train_loss= 2.68509 val_roc= 0.99284 val_auprc= 0.99277 val_apk= 1.00000 time= 1.69766
+Epoch: 0010 Iter: 3301 Edge: 0000 train_loss= 6.54493 val_roc= 0.95363 val_auprc= 0.94841 val_apk= 1.00000 time= 24.79061
+Epoch: 0010 Iter: 3451 Edge: 0003 train_loss= 2.15758 val_roc= 0.99426 val_auprc= 0.99412 val_apk= 1.00000 time= 1.70923
+Epoch: 0011 Iter: 0001 Edge: 0000 train_loss= 5.58734 val_roc= 0.95488 val_auprc= 0.94985 val_apk= 0.97119 time= 24.68748
+Epoch: 0011 Iter: 0151 Edge: 0003 train_loss= 2.94351 val_roc= 0.99438 val_auprc= 0.99341 val_apk= 1.00000 time= 1.69294
+Epoch: 0011 Iter: 0301 Edge: 0000 train_loss= 5.44205 val_roc= 0.95295 val_auprc= 0.94761 val_apk= 1.00000 time= 24.56372
+Epoch: 0011 Iter: 0451 Edge: 0003 train_loss= 2.93600 val_roc= 0.99484 val_auprc= 0.99459 val_apk= 1.00000 time= 1.65352
+Epoch: 0011 Iter: 0601 Edge: 0000 train_loss= 5.18346 val_roc= 0.95582 val_auprc= 0.95108 val_apk= 0.97119 time= 24.75015
+Epoch: 0011 Iter: 0751 Edge: 0003 train_loss= 4.19380 val_roc= 0.99374 val_auprc= 0.99324 val_apk= 1.00000 time= 1.68359
+Epoch: 0011 Iter: 0901 Edge: 0000 train_loss= 5.64129 val_roc= 0.95385 val_auprc= 0.94857 val_apk= 0.96097 time= 24.68810
+Epoch: 0011 Iter: 1051 Edge: 0003 train_loss= 1.95134 val_roc= 0.99360 val_auprc= 0.99300 val_apk= 1.00000 time= 1.69462
+Epoch: 0011 Iter: 1201 Edge: 0000 train_loss= 4.61070 val_roc= 0.95354 val_auprc= 0.94812 val_apk= 1.00000 time= 24.80641
+Epoch: 0011 Iter: 1351 Edge: 0003 train_loss= 2.68198 val_roc= 0.99433 val_auprc= 0.99371 val_apk= 1.00000 time= 1.69460
+Epoch: 0011 Iter: 1501 Edge: 0000 train_loss= 4.69943 val_roc= 0.95275 val_auprc= 0.94699 val_apk= 1.00000 time= 24.82294
+Epoch: 0011 Iter: 1651 Edge: 0003 train_loss= 3.09959 val_roc= 0.99421 val_auprc= 0.99375 val_apk= 1.00000 time= 1.72316
+Epoch: 0011 Iter: 1801 Edge: 0000 train_loss= 7.02946 val_roc= 0.95449 val_auprc= 0.94903 val_apk= 0.95208 time= 25.19467
+Epoch: 0011 Iter: 1951 Edge: 0003 train_loss= 3.02705 val_roc= 0.99422 val_auprc= 0.99363 val_apk= 1.00000 time= 1.72087
+Epoch: 0011 Iter: 2101 Edge: 0000 train_loss= 7.11946 val_roc= 0.95481 val_auprc= 0.94874 val_apk= 0.95992 time= 24.96680
+Epoch: 0011 Iter: 2251 Edge: 0003 train_loss= 3.10895 val_roc= 0.99409 val_auprc= 0.99422

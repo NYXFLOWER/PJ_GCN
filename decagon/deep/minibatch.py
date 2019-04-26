@@ -3,6 +3,7 @@ from __future__ import print_function
 
 import numpy as np
 import scipy.sparse as sp
+import pickle
 
 from ..utility import preprocessing
 
@@ -54,6 +55,24 @@ class EdgeMinibatchIterator(object):
                 print("Val edges=", "%04d" % len(self.val_edges[i,j][k]))
                 print("Test edges=", "%04d" % len(self.test_edges[i,j][k]))
 
+        self.save_xx_edges()
+
+    def save_xx_edges(self):
+        with open("mini/train_edges.pkl", "bw") as pk:
+            pickle.dump(self.train_edges, pk)
+
+        with open("mini/val_edges.pkl", "bw") as pk:
+            pickle.dump(self.val_edges, pk)
+
+        with open("mini/test_edges.pkl", "bw") as pk:
+            pickle.dump(self.test_edges, pk)
+
+        with open("mini/test_edges_false.pkl", "bw") as pk:
+            pickle.dump(self.test_edges_false, pk)
+
+        with open("mini/val_edges_false.pkl", "bw") as pk:
+            pickle.dump(self.val_edges_false, pk)
+
     def preprocess_graph(self, adj):
         adj = sp.coo_matrix(adj)
         if adj.shape[0] == adj.shape[1]:
@@ -93,8 +112,8 @@ class EdgeMinibatchIterator(object):
 
         test_edges_false = []
         while len(test_edges_false) < len(test_edges):
-            if len(test_edges_false) % 1000 == 0:
-                print("Constructing test edges=", "%04d/%04d" % (len(test_edges_false), len(test_edges)))
+            # if len(test_edges_false) % 1000 == 0:
+                # print("Constructing test edges=", "%04d/%04d" % (len(test_edges_false), len(test_edges)))
             idx_i = np.random.randint(0, self.adj_mats[edge_type][type_idx].shape[0])
             idx_j = np.random.randint(0, self.adj_mats[edge_type][type_idx].shape[1])
             if self._ismember([idx_i, idx_j], edges_all):
@@ -106,8 +125,8 @@ class EdgeMinibatchIterator(object):
 
         val_edges_false = []
         while len(val_edges_false) < len(val_edges):
-            if len(val_edges_false) % 1000 == 0:
-                print("Constructing val edges=", "%04d/%04d" % (len(val_edges_false), len(val_edges)))
+            # if len(val_edges_false) % 1000 == 0:
+            #     print("Constructing val edges=", "%04d/%04d" % (len(val_edges_false), len(val_edges)))
             idx_i = np.random.randint(0, self.adj_mats[edge_type][type_idx].shape[0])
             idx_j = np.random.randint(0, self.adj_mats[edge_type][type_idx].shape[1])
             if self._ismember([idx_i, idx_j], edges_all):
