@@ -17,6 +17,7 @@ class EdgeMinibatchIterator(object):
     placeholders -- tensorflow placeholders object
     batch_size -- size of the minibatches
     """
+
     def __init__(self, adj_mats, feat, edge_types, batch_size=100, val_test_size=0.01):
         self.adj_mats = adj_mats
         self.feat = feat
@@ -26,7 +27,60 @@ class EdgeMinibatchIterator(object):
         self.num_edge_types = sum(self.edge_types.values())
 
         self.iter = 0
-        self.freebatch_edge_types= list(range(self.num_edge_types))
+        self.freebatch_edge_types = list(range(self.num_edge_types))
+        self.batch_num = [0] * self.num_edge_types
+        self.current_edge_type_idx = 0
+        self.edge_type2idx = {}
+        self.idx2edge_type = {}
+        r = 0
+        for i, j in self.edge_types:
+            for k in range(self.edge_types[i, j]):
+                self.edge_type2idx[i, j, k] = r
+                self.idx2edge_type[r] = i, j, k
+                r += 1
+
+        self.train_edges = {edge_type: [None] * n for edge_type, n in self.edge_types.items()}
+        self.val_edges = {edge_type: [None] * n for edge_type, n in self.edge_types.items()}
+        self.test_edges = {edge_type: [None] * n for edge_type, n in self.edge_types.items()}
+        self.test_edges_false = {edge_type: [None] * n for edge_type, n in self.edge_types.items()}
+        self.val_edges_false = {edge_type: [None] * n for edge_type, n in self.edge_types.items()}
+
+        # Function to build test and val sets with val_test_size positive links
+        self.adj_train = {edge_type: [None] * n for edge_type, n in self.edge_types.items()}
+
+        temp = "/home/acq18hx/decagon/"
+        # temp = ''
+        with open(temp + "mini/train_edges.pkl", "rb") as pk:
+            unpickler = pickle.Unpickler(pk)
+            self.train_edges = unpickler.load()
+        with open(temp + "mini/val_edges.pkl", "rb") as pk:
+            unpickler = pickle.Unpickler(pk)
+            self.val_edges = unpickler.load()
+        with open(temp + "mini/test_edges.pkl", "rb") as pk:
+            unpickler = pickle.Unpickler(pk)
+            self.test_edges = unpickler.load()
+        with open(temp + "mini/test_edges_false.pkl", "rb") as pk:
+            unpickler = pickle.Unpickler(pk)
+            self.test_edges_false = unpickler.load()
+        with open(temp + "mini/val_edges_false.pkl", "rb") as pk:
+            unpickler = pickle.Unpickler(pk)
+            self.val_edges_false = unpickler.load()
+        with open(temp + "mini/adj_train.pkl", "rb") as pk:
+            unpickler = pickle.Unpickler(pk)
+            self.adj_train = unpickler.load()
+
+        print("mini-batch created!")
+
+    def __init__hhh__(self, adj_mats, feat, edge_types, batch_size=100, val_test_size=0.01):
+        self.adj_mats = adj_mats
+        self.feat = feat
+        self.edge_types = edge_types
+        self.batch_size = batch_size
+        self.val_test_size = val_test_size
+        self.num_edge_types = sum(self.edge_types.values())
+
+        self.iter = 0
+        self.freebatch_edge_types = list(range(self.num_edge_types))
         self.batch_num = [0]*self.num_edge_types
         self.current_edge_type_idx = 0
         self.edge_type2idx = {}
@@ -58,20 +112,23 @@ class EdgeMinibatchIterator(object):
         self.save_xx_edges()
 
     def save_xx_edges(self):
-        with open("mini/train_edges.pkl", "bw") as pk:
+        with open("/home/acq18hx/decagon/mini/train_edges.pkl", "wb") as pk:
             pickle.dump(self.train_edges, pk)
 
-        with open("mini/val_edges.pkl", "bw") as pk:
+        with open("/home/acq18hx/decagon/mini/val_edges.pkl", "wb") as pk:
             pickle.dump(self.val_edges, pk)
 
-        with open("mini/test_edges.pkl", "bw") as pk:
+        with open("/home/acq18hx/decagon/mini/test_edges.pkl", "wb") as pk:
             pickle.dump(self.test_edges, pk)
 
-        with open("mini/test_edges_false.pkl", "bw") as pk:
+        with open("/home/acq18hx/decagon/mini/test_edges_false.pkl", "wb") as pk:
             pickle.dump(self.test_edges_false, pk)
 
-        with open("mini/val_edges_false.pkl", "bw") as pk:
+        with open("/home/acq18hx/decagon/mini/val_edges_false.pkl", "wb") as pk:
             pickle.dump(self.val_edges_false, pk)
+
+        with open("/home/acq18hx/decagon/mini/adj_train.pkl", "wb") as pk:
+            pickle.dump(self.adj_train, pk)
 
     def preprocess_graph(self, adj):
         adj = sp.coo_matrix(adj)
@@ -194,7 +251,7 @@ class EdgeMinibatchIterator(object):
 
             i, j, k = self.idx2edge_type[self.current_edge_type_idx]
             if self.batch_num[self.current_edge_type_idx] * self.batch_size \
-                   <= len(self.train_edges[i,j][k]) - self.batch_size + 1:
+                   < len(self.train_edges[i,j][k]) - self.batch_size + 1:
                 break
             else:
                 if self.iter % 4 in [0, 1, 2]:
