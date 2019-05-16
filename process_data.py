@@ -8,22 +8,29 @@ import pickle
 class DecagonData:
     def __init__(self):
         # load data
-        with open('/home/acq18hx/decagon/data_decagon/graph_num_info.pkl', 'rb') as f:
+        print("loading...")
+        temp = ''
+        # temp = '/home/acq18hx/decagon/'
+        with open(temp + 'data_decagon/graph_num_info.pkl', 'rb') as f:
             [num_gene, num_drug, num_edge_type, num_drug_additional_feature] = pickle.load(f)
 
         # gene-gene
-        gene_adj = sp.load_npz("/home/acq18hx/decagon/data_decagon/gene-sparse-adj.npz")
+        gene_adj = sp.load_npz(temp + "data_decagon/gene-sparse-adj.npz")
+        print("load gene_gene finished!")
 
         # gene-drug
-        gene_drug_adj = sp.load_npz("/home/acq18hx/decagon/data_decagon/gene-drug-sparse-adj.npz")
-        drug_gene_adj = sp.load_npz("/home/acq18hx/decagon/data_decagon/drug-gene-sparse-adj.npz")
+        gene_drug_adj = sp.load_npz(temp + "data_decagon/gene-drug-sparse-adj.npz")
+        drug_gene_adj = sp.load_npz(temp + "data_decagon/drug-gene-sparse-adj.npz")
+        print("load gene_drug finished!")
 
         # drug-drug
         drug_drug_adj_list = []
         for i in range(num_edge_type):
-            drug_drug_adj_list.append(sp.load_npz("".join(["/home/acq18hx/decagon/data_decagon/drug-sparse-adj/type_", str(i), ".npz"])))
+            drug_drug_adj_list.append(sp.load_npz("".join([temp + "data_decagon/drug-sparse-adj/type_", str(i), ".npz"])))
+        print("load drug_drug finished!")
 
-        drug_feat_sparse = sp.load_npz("/home/acq18hx/decagon/data_decagon/drug-feature-sparse.npz")
+        drug_feat_sparse = sp.load_npz(temp + "data_decagon/drug-feature-sparse.npz")
+        print("load drug_feature finished!")
 
         # -------------------------- gene feature --------------------------
         # featureless (genes)
@@ -75,6 +82,7 @@ class DecagonData:
         self.edge_types = {k: len(v) for k, v in self.adj_mats_orig.items()}
         self.num_edge_types = sum(self.edge_types.values())
         print("Edge types:", "%d" % self.num_edge_types)
+        print("======================================================")
 
 
     def build_original(self):
