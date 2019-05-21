@@ -1,0 +1,212 @@
+loading...
+load gene_gene finished!
+load gene_drug finished!
+load drug_drug finished!
+load drug_feature finished!
+Edge types: 16
+======================================================
+Defining placeholders
+Create minibatch iterator
+Minibatch edge type: (0, 0, 0)
+Time cost= 6312.767916
+Train edges= 429368
+Val edges= 143122
+Test edges= 143122
+Minibatch edge type: (0, 0, 1)
+Time cost= 6058.509923
+Train edges= 429368
+Val edges= 143122
+Test edges= 143122
+Minibatch edge type: (0, 1, 0)
+/Users/nyxfer/Docu/PJ_GCN/decagon/deep/minibatch.py:149: RuntimeWarning: divide by zero encountered in power
+  rowdegree_mat_inv = sp.diags(np.nan_to_num(np.power(rowsum, -0.5)).flatten())
+/Users/nyxfer/Docu/PJ_GCN/decagon/deep/minibatch.py:150: RuntimeWarning: divide by zero encountered in power
+  coldegree_mat_inv = sp.diags(np.nan_to_num(np.power(colsum, -0.5)).flatten())
+Time cost= 3.985886
+Train edges= 11214
+Val edges= 3738
+Test edges= 3738
+Minibatch edge type: (1, 0, 0)
+Time cost= 3.989564
+Train edges= 11214
+Val edges= 3738
+Test edges= 3738
+Minibatch edge type: (1, 1, 0)
+Time cost= 1.489582
+Train edges= 6686
+Val edges= 2228
+Test edges= 2228
+Minibatch edge type: (1, 1, 1)
+Time cost= 0.023378
+Train edges= 0609
+Val edges= 0202
+Test edges= 0202
+Minibatch edge type: (1, 1, 2)
+Time cost= 0.025688
+Train edges= 0652
+Val edges= 0216
+Test edges= 0216
+Minibatch edge type: (1, 1, 3)
+Time cost= 0.028232
+Train edges= 0706
+Val edges= 0235
+Test edges= 0235
+Minibatch edge type: (1, 1, 4)
+Time cost= 0.023961
+Train edges= 0613
+Val edges= 0204
+Test edges= 0204
+Minibatch edge type: (1, 1, 5)
+Time cost= 0.004295
+Train edges= 0048
+Val edges= 0050
+Test edges= 0050
+Minibatch edge type: (1, 1, 6)
+Time cost= 1.475258
+Train edges= 6686
+Val edges= 2228
+Test edges= 2228
+Minibatch edge type: (1, 1, 7)
+Time cost= 0.023196
+Train edges= 0609
+Val edges= 0202
+Test edges= 0202
+Minibatch edge type: (1, 1, 8)
+Time cost= 0.025761
+Train edges= 0652
+Val edges= 0216
+Test edges= 0216
+Minibatch edge type: (1, 1, 9)
+Time cost= 0.028609
+Train edges= 0706
+Val edges= 0235
+Test edges= 0235
+Minibatch edge type: (1, 1, 10)
+Time cost= 0.023885
+Train edges= 0613
+Val edges= 0204
+Test edges= 0204
+Minibatch edge type: (1, 1, 11)
+Time cost= 0.004317
+Train edges= 0048
+Val edges= 0050
+Test edges= 0050
+Mini-batch saved to files!
+Create model
+WARNING:tensorflow:From /Users/nyxfer/Docu/PJ_GCN/decagon/deep/layers.py:93: calling l2_normalize (from tensorflow.python.ops.nn_impl) with dim is deprecated and will be removed in a future version.
+Instructions for updating:
+dim is deprecated, use axis instead
+Create optimizer
+WARNING:tensorflow:tf.op_scope(values, name, default_name) is deprecated, use tf.name_scope(name, default_name, values)
+WARNING:tensorflow:tf.op_scope(values, name, default_name) is deprecated, use tf.name_scope(name, default_name, values)
+/Users/nyxfer/anaconda3/envs/GCN/lib/python3.6/site-packages/tensorflow/python/ops/gradients_impl.py:100: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+  "Converting sparse IndexedSlices to a dense Tensor of unknown shape. "
+Initialize session
+2019-05-21 03:54:34.563646: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+Train model
+Epoch: 0001 Iter: 0001 Edge: 0000 train_loss= 120.94424 val_roc= 0.72224 val_auprc= 0.69205 val_apk= 0.92622 time= 12.64549
+Epoch: 0001 Iter: 0151 Edge: 0003 train_loss= 6.24677 val_roc= 0.96022 val_auprc= 0.94902 val_apk= 1.00000 time= 0.53739
+Epoch: 0001 Iter: 0301 Edge: 0000 train_loss= 15.72416 val_roc= 0.81568 val_auprc= 0.79161 val_apk= 0.88165 time= 11.33592
+Epoch: 0001 Iter: 0451 Edge: 0003 train_loss= 3.87061 val_roc= 0.96903 val_auprc= 0.95999 val_apk= 1.00000 time= 0.53541
+Epoch: 0001 Iter: 0601 Edge: 0000 train_loss= 12.98789 val_roc= 0.85659 val_auprc= 0.83406 val_apk= 0.70820 time= 11.22527
+Epoch: 0001 Iter: 0751 Edge: 0003 train_loss= 4.52129 val_roc= 0.97692 val_auprc= 0.97289 val_apk= 1.00000 time= 0.54322
+Epoch: 0001 Iter: 0901 Edge: 0000 train_loss= 13.66540 val_roc= 0.88089 val_auprc= 0.86342 val_apk= 0.97056 time= 11.21869
+Epoch: 0001 Iter: 1051 Edge: 0003 train_loss= 2.84686 val_roc= 0.96747 val_auprc= 0.95983 val_apk= 1.00000 time= 0.53176
+Epoch: 0001 Iter: 1201 Edge: 0000 train_loss= 11.70346 val_roc= 0.88799 val_auprc= 0.86974 val_apk= 0.97238 time= 11.36667
+Epoch: 0001 Iter: 1351 Edge: 0003 train_loss= 4.23699 val_roc= 0.97584 val_auprc= 0.96918 val_apk= 1.00000 time= 0.55281
+Epoch: 0001 Iter: 1501 Edge: 0000 train_loss= 9.36303 val_roc= 0.90127 val_auprc= 0.88793 val_apk= 1.00000 time= 11.35511
+Epoch: 0001 Iter: 1651 Edge: 0003 train_loss= 4.22491 val_roc= 0.97838 val_auprc= 0.97237 val_apk= 0.94660 time= 0.55266
+Epoch: 0001 Iter: 1801 Edge: 0000 train_loss= 11.56337 val_roc= 0.89300 val_auprc= 0.87795 val_apk= 1.00000 time= 11.17273
+Epoch: 0001 Iter: 1951 Edge: 0003 train_loss= 4.54461 val_roc= 0.98299 val_auprc= 0.97942 val_apk= 0.95362 time= 0.54840
+Epoch: 0001 Iter: 2101 Edge: 0000 train_loss= 11.81268 val_roc= 0.90710 val_auprc= 0.89390 val_apk= 0.94437 time= 11.28095
+Epoch: 0001 Iter: 2251 Edge: 0003 train_loss= 2.70237 val_roc= 0.98714 val_auprc= 0.98494 val_apk= 0.95041 time= 0.56336
+Epoch: 0001 Iter: 2401 Edge: 0000 train_loss= 10.40880 val_roc= 0.90642 val_auprc= 0.89223 val_apk= 0.95041 time= 11.27477
+Epoch: 0001 Iter: 2551 Edge: 0003 train_loss= 3.33182 val_roc= 0.98363 val_auprc= 0.97947 val_apk= 0.94660 time= 0.53896
+Epoch: 0001 Iter: 2701 Edge: 0000 train_loss= 8.53652 val_roc= 0.91154 val_auprc= 0.89791 val_apk= 0.97878 time= 11.27114
+Epoch: 0001 Iter: 2851 Edge: 0003 train_loss= 2.93592 val_roc= 0.98336 val_auprc= 0.97983 val_apk= 0.95362 time= 0.55408
+Epoch: 0001 Iter: 3001 Edge: 0000 train_loss= 10.33506 val_roc= 0.91638 val_auprc= 0.90396 val_apk= 0.94437 time= 11.17180
+Epoch: 0001 Iter: 3151 Edge: 0003 train_loss= 3.01062 val_roc= 0.98462 val_auprc= 0.98143 val_apk= 0.93902 time= 0.56203
+Epoch: 0001 Iter: 3301 Edge: 0000 train_loss= 8.88869 val_roc= 0.90408 val_auprc= 0.88868 val_apk= 1.00000 time= 11.24635
+Epoch: 0001 Iter: 3451 Edge: 0003 train_loss= 4.59709 val_roc= 0.98383 val_auprc= 0.98158 val_apk= 1.00000 time= 0.54436
+Optimization finished!
+Edge type= [00, 00, 00]
+Edge type: 0000 Test AUROC score 0.91377
+Edge type: 0000 Test AUPRC score 0.90283
+Edge type: 0000 Test AP@k score 0.97878
+
+Edge type= [00, 00, 01]
+Edge type: 0001 Test AUROC score 0.91256
+Edge type: 0001 Test AUPRC score 0.90742
+Edge type: 0001 Test AP@k score 1.00000
+
+Edge type= [00, 01, 00]
+Edge type: 0002 Test AUROC score 0.85919
+Edge type: 0002 Test AUPRC score 0.91680
+Edge type: 0002 Test AP@k score 1.00000
+
+Edge type= [01, 00, 00]
+Edge type: 0003 Test AUROC score 0.98252
+Edge type: 0003 Test AUPRC score 0.97845
+Edge type: 0003 Test AP@k score 0.97607
+
+Edge type= [01, 01, 00]
+Edge type: 0004 Test AUROC score 0.75729
+Edge type: 0004 Test AUPRC score 0.72817
+Edge type: 0004 Test AP@k score 0.76553
+
+Edge type= [01, 01, 01]
+Edge type: 0005 Test AUROC score 0.80548
+Edge type: 0005 Test AUPRC score 0.73346
+Edge type: 0005 Test AP@k score 0.55940
+
+Edge type= [01, 01, 02]
+Edge type: 0006 Test AUROC score 0.42828
+Edge type: 0006 Test AUPRC score 0.49505
+Edge type: 0006 Test AP@k score 0.38156
+
+Edge type= [01, 01, 03]
+Edge type: 0007 Test AUROC score 0.57081
+Edge type: 0007 Test AUPRC score 0.56375
+Edge type: 0007 Test AP@k score 0.35129
+
+Edge type= [01, 01, 04]
+Edge type: 0008 Test AUROC score 0.62721
+Edge type: 0008 Test AUPRC score 0.62828
+Edge type: 0008 Test AP@k score 0.49638
+
+Edge type= [01, 01, 05]
+Edge type: 0009 Test AUROC score 0.45260
+Edge type: 0009 Test AUPRC score 0.48450
+Edge type: 0009 Test AP@k score 0.21610
+
+Edge type= [01, 01, 06]
+Edge type: 0010 Test AUROC score 0.76321
+Edge type: 0010 Test AUPRC score 0.68750
+Edge type: 0010 Test AP@k score 0.50268
+
+Edge type= [01, 01, 07]
+Edge type: 0011 Test AUROC score 0.34304
+Edge type: 0011 Test AUPRC score 0.41682
+Edge type: 0011 Test AP@k score 0.19677
+
+Edge type= [01, 01, 08]
+Edge type: 0012 Test AUROC score 0.60592
+Edge type: 0012 Test AUPRC score 0.59051
+Edge type: 0012 Test AP@k score 0.32386
+
+Edge type= [01, 01, 09]
+Edge type: 0013 Test AUROC score 0.34106
+Edge type: 0013 Test AUPRC score 0.39952
+Edge type: 0013 Test AP@k score 0.07050
+
+Edge type= [01, 01, 10]
+Edge type: 0014 Test AUROC score 0.37562
+Edge type: 0014 Test AUPRC score 0.40686
+Edge type: 0014 Test AP@k score 0.02667
+
+Edge type= [01, 01, 11]
+Edge type: 0015 Test AUROC score 0.63840
+Edge type: 0015 Test AUPRC score 0.67295
+Edge type: 0015 Test AP@k score 0.49763
+
+Finished!
