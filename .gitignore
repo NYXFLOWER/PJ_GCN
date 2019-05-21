@@ -18,4 +18,7 @@ result/
 *.pyc
 decagon/deep/__pycache__/
 
+# data files
+mini_dir/
+
 
