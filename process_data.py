@@ -6,11 +6,12 @@ import pickle
 
 
 class DecagonData:
-    def __init__(self):
+    def __init__(self, num):
+        """:param num: load num+1 edge types in order"""
         # load data
         print("loading...")
+
         temp = ''
-        # temp = '/home/acq18hx/decagon/'
         with open(temp + 'data_decagon/graph_num_info.pkl', 'rb') as f:
             [num_gene, num_drug, num_edge_type, num_drug_additional_feature] = pickle.load(f)
 
@@ -27,6 +28,9 @@ class DecagonData:
         drug_drug_adj_list = []
         for i in range(num_edge_type):
             drug_drug_adj_list.append(sp.load_npz("".join([temp + "data_decagon/drug-sparse-adj/type_", str(i), ".npz"])))
+            if i == num-1:          # 6 edge types
+                break
+
         print("load drug_drug finished!")
 
         drug_feat_sparse = sp.load_npz(temp + "data_decagon/drug-feature-sparse.npz")

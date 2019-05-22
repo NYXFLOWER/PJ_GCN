@@ -19,7 +19,7 @@ class EdgeMinibatchIterator(object):
     batch_size -- size of the minibatches
     """
 
-    def __init2233__(self, adj_mats, feat, edge_types, batch_size=100, val_test_size=0.01):
+    def __init__(self, adj_mats, feat, edge_types, batch_size=100, val_test_size=0.01):
         self.adj_mats = adj_mats
         self.feat = feat
         self.edge_types = edge_types
@@ -49,8 +49,8 @@ class EdgeMinibatchIterator(object):
         # Function to build test and val sets with val_test_size positive links
         self.adj_train = {edge_type: [None] * n for edge_type, n in self.edge_types.items()}
 
-        # temp = "/home/acq18hx/decagon/"
-        temp = 'mini_dir/mini/'
+        # temp = "/home/acq18hx/decagon/mini_dir/mini/"
+        temp = 'full_'
         with open(temp + "train_edges.pkl", "rb") as pk:
             unpickler = pickle.Unpickler(pk)
             self.train_edges = unpickler.load()
@@ -72,7 +72,7 @@ class EdgeMinibatchIterator(object):
 
         print("mini-batch created!")
 
-    def __init__(self, adj_mats, feat, edge_types, batch_size=100, val_test_size=0.01):
+    def __inithhh__(self, adj_mats, feat, edge_types, batch_size=100, val_test_size=0.01):
         self.adj_mats = adj_mats
         self.feat = feat
         self.edge_types = edge_types
@@ -110,11 +110,21 @@ class EdgeMinibatchIterator(object):
                 print("Train edges=", "%04d" % len(self.train_edges[i,j][k]))
                 print("Val edges=", "%04d" % len(self.val_edges[i,j][k]))
                 print("Test edges=", "%04d" % len(self.test_edges[i,j][k]))
+        # i = 1
+        # j = 1
+        # for k in range(self.edge_types[i, j]):
+        #     print("Minibatch edge type:", "(%d, %d, %d)" % (i, j, k))
+        #     begin = time.time()
+        #     self.mask_test_edges((i, j), k)
+        #     print("Time cost=", "%f" % (time.time() - begin))
+        #     print("Train edges=", "%04d" % len(self.train_edges[i, j][k]))
+        #     print("Val edges=", "%04d" % len(self.val_edges[i, j][k]))
+        #     print("Test edges=", "%04d" % len(self.test_edges[i, j][k]))
 
         self.save_xx_edges()
 
     def save_xx_edges(self):
-        temp = 'mini_6/'
+        temp = 'new_'
         # temp = '/home/acq18hx/decagon/mini_6/'
         with open(temp + "train_edges.pkl", "wb") as pk:
             pickle.dump(self.train_edges, pk)
@@ -159,8 +169,10 @@ class EdgeMinibatchIterator(object):
 
     def mask_test_edges(self, edge_type, type_idx):
         edges_all, _, _ = preprocessing.sparse_to_tuple(self.adj_mats[edge_type][type_idx])
-        num_test = max(50, int(np.floor(edges_all.shape[0] * self.val_test_size)))
-        num_val = max(50, int(np.floor(edges_all.shape[0] * self.val_test_size)))
+        # num_test = max(50, int(np.floor(edges_all.shape[0] * self.val_test_size)))
+        # num_val = max(50, int(np.floor(edges_all.shape[0] * self.val_test_size)))
+        num_test = int(np.floor(edges_all.shape[0] * self.val_test_size))
+        num_val = int(np.floor(edges_all.shape[0] * self.val_test_size))
 
         all_edge_idx = list(range(edges_all.shape[0]))
         np.random.shuffle(all_edge_idx)
