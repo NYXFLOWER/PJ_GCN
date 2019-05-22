@@ -14,6 +14,7 @@ from decagon.deep.model import DecagonModel
 from decagon.deep.minibatch import EdgeMinibatchIterator
 from decagon.utility import rank_metrics, preprocessing
 from process_data import DecagonData
+import pickle
 
 # Train on CPU (hide GPU) due to memory constraints
 os.environ['CUDA_VISIBLE_DEVICES'] = ""
@@ -100,17 +101,20 @@ def construct_placeholders(edge_types):
 # logging
 # print("All Print Info will be written to output.log")
 # stdout_backup = sys.stdout
-# log_file =open("output.log", "w")
+# log_file = open("output.log", "w")
 # sys.stdout = log_file
 
+begin_time = time.time()
 
 ###########################################################
 #
 # Load and preprocess data
 #
 ###########################################################
-decagon = DecagonData()
-val_test_size = 0.2
+NUM_EDGE = 6
+
+decagon = DecagonData(num=NUM_EDGE)
+val_test_size = 0.1
 
 
 ###########################################################
@@ -122,7 +126,7 @@ flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 10, 'Number of epochs to train.')
+flags.DEFINE_integer('epochs', 0, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
 flags.DEFINE_float('weight_decay', 0, 'Weight for L2 loss on embedding matrix.')
@@ -150,9 +154,13 @@ minibatch = EdgeMinibatchIterator(
     feat=decagon.feat,
     edge_types=decagon.edge_types,
     batch_size=FLAGS.batch_size,
-    val_test_size=val_test_size
+    val_test_size=val_test_size,
 )
 
+# log_file.close()
+# sys.stdout = stdout_backup
+
+print("Mini-batch finished!\n")
 print("Create model")
 model = DecagonModel(
     placeholders=placeholders,
@@ -181,6 +189,8 @@ sess = tf.Session()
 sess.run(tf.global_variables_initializer())
 feed_dict = {}
 
+print("Preparation Time Cost: %f" % (time.time()-begin_time))
+begin_time = time.time()
 ###########################################################
 #
 # Train model
@@ -219,7 +229,10 @@ for epoch in range(FLAGS.epochs):
 
         itr += 1
 
+
 print("Optimization finished!")
+print("Opt Time Cost: %f" % (time.time() - begin_time))
+begin_time = time.time()
 
 for et in range(decagon.num_edge_types):
     roc_score, auprc_score, apk_score = get_accuracy_scores(
@@ -230,7 +243,6 @@ for et in range(decagon.num_edge_types):
     print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
     print()
 
-
-# log_file.close()
-# sys.stdout = stdout_backup
+print("Test Time Cost: {:f}".format(time.time() - begin_time))
 print("Finished!")
+
