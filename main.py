@@ -112,8 +112,12 @@ begin_time = time.time()
 #
 ###########################################################
 NUM_EDGE = 6
+# generate training edge types
+et = [i for i in range(NUM_EDGE)] + [i for i in range(NUM_EDGE)]      # ordered edge types
 
-decagon = DecagonData(num=NUM_EDGE)
+print("The training edge types are: ", et)
+
+decagon = DecagonData(et)
 val_test_size = 0.1
 
 
@@ -153,6 +157,7 @@ minibatch = EdgeMinibatchIterator(
     adj_mats=decagon.adj_mats_orig,
     feat=decagon.feat,
     edge_types=decagon.edge_types,
+    et=et,
     batch_size=FLAGS.batch_size,
     val_test_size=val_test_size,
 )
