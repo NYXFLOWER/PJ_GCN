@@ -130,7 +130,7 @@ flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 0, 'Number of epochs to train.')
+flags.DEFINE_integer('epochs', 100, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
 flags.DEFINE_float('weight_decay', 0, 'Weight for L2 loss on embedding matrix.')
@@ -201,7 +201,7 @@ begin_time = time.time()
 # Train model
 #
 ###########################################################
-
+ep = [1, 10, 30, 60]
 print("Train model")
 for epoch in range(FLAGS.epochs):
 
@@ -233,6 +233,19 @@ for epoch in range(FLAGS.epochs):
                   "val_apk=", "{:.5f}".format(val_apk), "time=", "{:.5f}".format(time.time() - t))
 
         itr += 1
+
+    if epoch + 1 in ep:
+        print("\n ------- result for epoch ", epoch + 1, " -------")
+        print("iter: ", itr)
+        for et in range(decagon.num_edge_types):
+            roc_score, auprc_score, apk_score = get_accuracy_scores(
+                minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
+            print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])
+            print("Edge type:", "%04d" % et, "Test AUROC score", "{:.5f}".format(roc_score))
+            print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
+            print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
+            print()
+        print("==========================")
 
 
 print("Optimization finished!")
