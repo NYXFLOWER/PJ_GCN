@@ -35,9 +35,9 @@ class EdgeMinibatchIterator(object):
         self.idx2edge_type = {}
         r = 0
         for i, j in self.edge_types:
-            for i in range(self.edge_types[i, j]):
-                self.edge_type2idx[i, j, i] = r
-                self.idx2edge_type[r] = i, j, i
+            for k in range(self.edge_types[i, j]):
+                self.edge_type2idx[i, j, k] = r
+                self.idx2edge_type[r] = i, j, k
                 r += 1
 
 

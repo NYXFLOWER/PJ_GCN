@@ -26,7 +26,8 @@ class DecagonData:
 
         # drug-drug
         drug_drug_adj_list = []
-        for i in et:
+        l_et = int(len(et)/2)
+        for i in et[:l_et]:
             drug_drug_adj_list.append(sp.load_npz("".join([temp + "data_decagon/drug-sparse-adj/type_", str(i), ".npz"])))
 
         print("load drug_drug finished!")
