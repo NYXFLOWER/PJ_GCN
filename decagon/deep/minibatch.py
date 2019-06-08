@@ -42,7 +42,7 @@ class EdgeMinibatchIterator(object):
 
 
 
-        # temp = "/home/acq18hx/decagon/mini_dir/mini/"
+        # temp = "/home/acq18hx/decagon/full_"
         temp = 'full_'
         with open(temp + "train_edges.pkl", "rb") as pk:
             unpickler = pickle.Unpickler(pk)

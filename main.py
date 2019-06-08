@@ -101,7 +101,8 @@ def construct_placeholders(edge_types):
 # logging
 # print("All Print Info will be written to output.log")
 # stdout_backup = sys.stdout
-# log_file = open("output.log", "w")
+# log_file = open("/home/acq18hx/outputworst.log", "w")
+# # log_file = open("output.log", "w")
 # sys.stdout = log_file
 
 begin_time = time.time()
@@ -111,9 +112,11 @@ begin_time = time.time()
 # Load and preprocess data
 #
 ###########################################################
-NUM_EDGE = 6
+NUM_EDGE = 1316
 # generate training edge types
-et = [i for i in range(NUM_EDGE)] + [i for i in range(NUM_EDGE)]      # ordered edge types
+et = [i for i in range(NUM_EDGE)] + [i for i in range(NUM_EDGE)]            # ordered edge types
+# et = [130, 644, 668, 1113, 1246, 762, 130, 644, 668, 1113, 1246, 762]       # top 6 best
+# et = [475, 1052, 1285, 104, 669, 1145, 475, 1052, 1285, 104, 669, 1145]     # top 6 worst
 
 print("The training edge types are: ", et)
 
@@ -162,8 +165,7 @@ minibatch = EdgeMinibatchIterator(
     val_test_size=val_test_size,
 )
 
-# log_file.close()
-# sys.stdout = stdout_backup
+
 
 print("Mini-batch finished!\n")
 print("Create model")
@@ -173,6 +175,8 @@ model = DecagonModel(
     nonzero_feat=decagon.num_nonzero_feat,
     edge_types=decagon.edge_types,
     decoders=decagon.edge_type2decoder,
+    name='bw12',
+    logging='logging'
 )
 
 print("Create optimizer")
@@ -201,7 +205,7 @@ begin_time = time.time()
 # Train model
 #
 ###########################################################
-ep = [1, 10, 30, 60]
+ep = [1, 10, 30, 60, 80, 90]
 print("Train model")
 for epoch in range(FLAGS.epochs):
 
@@ -264,3 +268,5 @@ for et in range(decagon.num_edge_types):
 print("Test Time Cost: {:f}".format(time.time() - begin_time))
 print("Finished!")
 
+# log_file.close()
+# sys.stdout = stdout_backup
