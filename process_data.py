@@ -11,6 +11,7 @@ class DecagonData:
         # load data
         print("loading...")
 
+        # temp = '/home/acq18hx/decagon/'
         temp = ''
         with open(temp + 'data_decagon/graph_num_info.pkl', 'rb') as f:
             [num_gene, num_drug, num_edge_type, num_drug_additional_feature] = pickle.load(f)
