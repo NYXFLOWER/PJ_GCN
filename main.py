@@ -102,7 +102,7 @@ def construct_placeholders(edge_types):
 # print("All Print Info will be written to output.log")
 # stdout_backup = sys.stdout
 # log_file = open("/home/acq18hx/outputworst.log", "w")
-# # log_file = open("output.log", "w")
+# log_file = open("./output.log", "w")
 # sys.stdout = log_file
 
 begin_time = time.time()
@@ -112,10 +112,11 @@ begin_time = time.time()
 # Load and preprocess data
 #
 ###########################################################
-NUM_EDGE = 1316
+NUM_EDGE = 6
 # generate training edge types
-et = [i for i in range(NUM_EDGE)] + [i for i in range(NUM_EDGE)]            # ordered edge types
-# et = [130, 644, 668, 1113, 1246, 762, 130, 644, 668, 1113, 1246, 762]       # top 6 best
+# et = [i for i in range(NUM_EDGE)] + [i for i in range(NUM_EDGE)]            # ordered edge types
+et = [130, 644, 668, 1113, 1246, 762, 130, 644, 668, 1113, 1246, 762,
+      475, 1052, 1285, 104, 669, 1145, 475, 1052, 1285, 104, 669, 1145]       # top 6 best + worst
 # et = [475, 1052, 1285, 104, 669, 1145, 475, 1052, 1285, 104, 669, 1145]     # top 6 worst
 
 print("The training edge types are: ", et)
@@ -133,13 +134,13 @@ flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 100, 'Number of epochs to train.')
+flags.DEFINE_integer('epochs', 1, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
 flags.DEFINE_float('weight_decay', 0, 'Weight for L2 loss on embedding matrix.')
 flags.DEFINE_float('dropout', 0.1, 'Dropout rate (1 - keep probability).')
 flags.DEFINE_float('max_margin', 0.1, 'Max margin parameter in hinge loss')
-flags.DEFINE_integer('batch_size', 512, 'minibatch size.')
+flags.DEFINE_integer('batch_size', 32, 'minibatch size.')
 flags.DEFINE_boolean('bias', True, 'Bias term.')
 
 # Important -- Do not evaluate/print validation performance every iteration as it can take
@@ -194,6 +195,7 @@ with tf.name_scope('optimizer'):
     )
 
 print("Initialize session")
+saver = tf.train.Saver()
 sess = tf.Session()
 sess.run(tf.global_variables_initializer())
 feed_dict = {}
@@ -205,7 +207,7 @@ begin_time = time.time()
 # Train model
 #
 ###########################################################
-ep = [1, 10, 30, 60, 80, 90]
+ep = [0, 10, 30, 60, 80, 90]
 print("Train model")
 for epoch in range(FLAGS.epochs):
 
@@ -237,24 +239,32 @@ for epoch in range(FLAGS.epochs):
                   "val_apk=", "{:.5f}".format(val_apk), "time=", "{:.5f}".format(time.time() - t))
 
         itr += 1
+        # if itr == 1000:
+        #     break
 
-    if epoch + 1 in ep:
-        print("\n ------- result for epoch ", epoch + 1, " -------")
-        print("iter: ", itr)
-        for et in range(decagon.num_edge_types):
-            roc_score, auprc_score, apk_score = get_accuracy_scores(
-                minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
-            print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])
-            print("Edge type:", "%04d" % et, "Test AUROC score", "{:.5f}".format(roc_score))
-            print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
-            print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
-            print()
-        print("==========================")
+    # if epoch + 1 in ep:
+    #     print("\n ------- result for epoch ", epoch + 1, " -------")
+    #     print("iter: ", itr)
+    #     for et in range(decagon.num_edge_types):
+    #         roc_score, auprc_score, apk_score = get_accuracy_scores(
+    #             minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
+    #         print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])
+    #         print("Edge type:", "%04d" % et, "Test AUROC score", "{:.5f}".format(roc_score))
+    #         print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
+    #         print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
+    #         print()
+    #     print("==========================")
 
 
 print("Optimization finished!")
 print("Opt Time Cost: %f" % (time.time() - begin_time))
 begin_time = time.time()
+
+
+# save model to path
+save_path = saver.save(sess, "./tmp/model.ckpt")
+print("Model saved in path: %s" % save_path)
+
 
 for et in range(decagon.num_edge_types):
     roc_score, auprc_score, apk_score = get_accuracy_scores(
