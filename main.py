@@ -17,13 +17,13 @@ from process_data import DecagonData
 import pickle
 
 # Train on CPU (hide GPU) due to memory constraints
-os.environ['CUDA_VISIBLE_DEVICES'] = ""
+# os.environ['CUDA_VISIBLE_DEVICES'] = ""
 
 # Train on GPU
-# os.environ["CUDA_DEVICE_ORDER"] = 'PCI_BUS_ID'
-# os.environ["CUDA_VISIBLE_DEVICES"] = '0'
-# config = tf.ConfigProto()
-# config.gpu_options.allow_growth = True
+os.environ["CUDA_DEVICE_ORDER"] = 'PCI_BUS_ID'
+os.environ["CUDA_VISIBLE_DEVICES"] = '0'
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
 
 np.random.seed(0)
 
@@ -112,13 +112,16 @@ begin_time = time.time()
 # Load and preprocess data
 #
 ###########################################################
-NUM_EDGE = 6
+# NUM_EDGE = 6
 # generate training edge types
 # et = [i for i in range(NUM_EDGE)] + [i for i in range(NUM_EDGE)]            # ordered edge types
-et = [130, 644, 668, 1113, 1246, 762, 130, 644, 668, 1113, 1246, 762,
-      475, 1052, 1285, 104, 669, 1145, 475, 1052, 1285, 104, 669, 1145]       # top 6 best + worst
+# et = [130, 644, 668, 1113, 1246, 762, 130, 644, 668, 1113, 1246, 762,]       # top 6 best + worst
 # et = [475, 1052, 1285, 104, 669, 1145, 475, 1052, 1285, 104, 669, 1145]     # top 6 worst
 
+# load selected training
+with open("./data_decagon/training_samples.pkl", "rb") as f:
+    et = pickle.load(f)
+et += et
 print("The training edge types are: ", et)
 
 decagon = DecagonData(et)
@@ -134,13 +137,13 @@ flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 1, 'Number of epochs to train.')
+flags.DEFINE_integer('epochs', 100, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
 flags.DEFINE_float('weight_decay', 0, 'Weight for L2 loss on embedding matrix.')
 flags.DEFINE_float('dropout', 0.1, 'Dropout rate (1 - keep probability).')
 flags.DEFINE_float('max_margin', 0.1, 'Max margin parameter in hinge loss')
-flags.DEFINE_integer('batch_size', 32, 'minibatch size.')
+flags.DEFINE_integer('batch_size', 512, 'minibatch size.')
 flags.DEFINE_boolean('bias', True, 'Bias term.')
 
 # Important -- Do not evaluate/print validation performance every iteration as it can take
@@ -221,39 +224,28 @@ for epoch in range(FLAGS.epochs):
             dropout=FLAGS.dropout,
             placeholders=placeholders)
 
-        t = time.time()
+        # t = time.time()
 
         # Training step: run single weight update
         outs = sess.run([opt.opt_op, opt.cost, opt.batch_edge_type_idx], feed_dict=feed_dict)
         train_cost = outs[1]
         batch_edge_type = outs[2]
 
-        if itr % PRINT_PROGRESS_EVERY == 0:
-            val_auc, val_auprc, val_apk = get_accuracy_scores(
-                minibatch.val_edges, minibatch.val_edges_false,
-                minibatch.idx2edge_type[minibatch.current_edge_type_idx])
-
-            print("Epoch:", "%04d" % (epoch + 1), "Iter:", "%04d" % (itr + 1), "Edge:", "%04d" % batch_edge_type,
-                  "train_loss=", "{:.5f}".format(train_cost),
-                  "val_roc=", "{:.5f}".format(val_auc), "val_auprc=", "{:.5f}".format(val_auprc),
-                  "val_apk=", "{:.5f}".format(val_apk), "time=", "{:.5f}".format(time.time() - t))
+        # ##### validation loss for a iteration #####
+        # if itr % PRINT_PROGRESS_EVERY == 0:
+        #     val_auc, val_auprc, val_apk = get_accuracy_scores(
+        #         minibatch.val_edges, minibatch.val_edges_false,
+        #         minibatch.idx2edge_type[minibatch.current_edge_type_idx])
+        #
+        #     print("Epoch:", "%04d" % (epoch + 1), "Iter:", "%04d" % (itr + 1), "Edge:", "%04d" % batch_edge_type,
+        #           "train_loss=", "{:.5f}".format(train_cost),
+        #           "val_roc=", "{:.5f}".format(val_auc), "val_auprc=", "{:.5f}".format(val_auprc),
+        #           "val_apk=", "{:.5f}".format(val_apk), "time=", "{:.5f}".format(time.time() - t))
 
         itr += 1
-        # if itr == 1000:
-        #     break
 
-    # if epoch + 1 in ep:
-    #     print("\n ------- result for epoch ", epoch + 1, " -------")
-    #     print("iter: ", itr)
-    #     for et in range(decagon.num_edge_types):
-    #         roc_score, auprc_score, apk_score = get_accuracy_scores(
-    #             minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
-    #         print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])
-    #         print("Edge type:", "%04d" % et, "Test AUROC score", "{:.5f}".format(roc_score))
-    #         print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
-    #         print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
-    #         print()
-    #     print("==========================")
+    # validation loss for each epoch
+
 
 
 print("Optimization finished!")
