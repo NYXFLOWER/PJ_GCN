@@ -66,7 +66,7 @@ class DecagonModel(Model):
         for i, j in self.edge_types:
             self.hidden1[i].append(GraphConvolutionSparseMulti(
                 input_dim=self.input_dim, output_dim=FLAGS.hidden1,
-                edge_type=(i,j), num_types=self.edge_types[i,j],
+                edge_type=(i, j), num_types=self.edge_types[i, j],
                 adj_mats=self.adj_mats, nonzero_feat=self.nonzero_feat,
                 act=lambda x: x, dropout=self.dropout,
                 logging=self.logging)(self.inputs[j]))
@@ -78,14 +78,14 @@ class DecagonModel(Model):
         for i, j in self.edge_types:
             self.embeddings_reltyp[i].append(GraphConvolutionMulti(
                 input_dim=FLAGS.hidden1, output_dim=FLAGS.hidden2,
-                edge_type=(i,j), num_types=self.edge_types[i,j],
+                edge_type=(i, j), num_types=self.edge_types[i, j],
                 adj_mats=self.adj_mats, act=lambda x: x,
                 dropout=self.dropout, logging=self.logging)(self.hidden1[j]))
 
         self.embeddings = [None] * self.num_obj_types
         for i, embeds in self.embeddings_reltyp.items():
-            # self.embeddings[i] = tf.nn.relu(tf.add_n(embeds))
-            self.embeddings[i] = tf.add_n(embeds)
+            self.embeddings[i] = tf.nn.relu(tf.add_n(embeds))
+            # self.embeddings[i] = tf.add_n(embeds)
 
         self.edge_type2decoder = {}
         for i, j in self.edge_types:
