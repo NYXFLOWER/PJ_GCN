@@ -17,13 +17,13 @@ from process_data import DecagonData
 import pickle
 
 # Train on CPU (hide GPU) due to memory constraints
-# os.environ['CUDA_VISIBLE_DEVICES'] = ""
+os.environ['CUDA_VISIBLE_DEVICES'] = ""
 
 # Train on GPU
-os.environ["CUDA_DEVICE_ORDER"] = 'PCI_BUS_ID'
-os.environ["CUDA_VISIBLE_DEVICES"] = '0'
-config = tf.ConfigProto()
-config.gpu_options.allow_growth = True
+# os.environ["CUDA_DEVICE_ORDER"] = 'PCI_BUS_ID'
+# os.environ["CUDA_VISIBLE_DEVICES"] = '0'
+# config = tf.ConfigProto()
+# config.gpu_options.allow_growth = True
 
 np.random.seed(0)
 
@@ -41,6 +41,7 @@ def get_accuracy_scores(edges_pos, edges_neg, edge_type):
     feed_dict.update({placeholders['batch_row_edge_type']: edge_type[0]})
     feed_dict.update({placeholders['batch_col_edge_type']: edge_type[1]})
     rec = sess.run(opt.predictions, feed_dict=feed_dict)
+
 
     def sigmoid(x):
         return 1. / (1 + np.exp(-x))
@@ -80,6 +81,16 @@ def get_accuracy_scores(edges_pos, edges_neg, edge_type):
     return roc_sc, aupr_sc, apk_sc
 
 
+def get_cost(edges_pos, edges_neg, edge_type):
+    feed_dict.update({placeholders['dropout']: 0})
+    feed_dict.update({placeholders['batch_edge_type_idx']: minibatch.edge_type2idx[edge_type]})
+    feed_dict.update({placeholders['batch_row_edge_type']: edge_type[0]})
+    feed_dict.update({placeholders['batch_col_edge_type']: edge_type[1]})
+    cost = sess.run(opt.cost, feed_dict=feed_dict)
+
+    return cost
+
+
 def construct_placeholders(edge_types):
     placeholders = {
         'batch': tf.placeholder(tf.int32, name='batch'),
@@ -115,14 +126,16 @@ begin_time = time.time()
 # NUM_EDGE = 6
 # generate training edge types
 # et = [i for i in range(NUM_EDGE)] + [i for i in range(NUM_EDGE)]            # ordered edge types
-# et = [130, 644, 668, 1113, 1246, 762, 130, 644, 668, 1113, 1246, 762,]       # top 6 best + worst
+# et = [130, 644, 668, 1113, 1246, 762, 130, 644, 668, 1113, 1246, 762,]       # top 6 best
 # et = [475, 1052, 1285, 104, 669, 1145, 475, 1052, 1285, 104, 669, 1145]     # top 6 worst
+et = [130, 644, 668, 1113, 1246, 762, 475, 1052, 130, 644, 668, 1113, 1246, 762, 475, 1052]     # 6best + 2worst
 
 # load selected training
-with open("./data_decagon/training_samples.pkl", "rb") as f:
-    et = pickle.load(f)
-et += et
-print("The training edge types are: ", et)
+# with open("./data_decagon/training_samples.pkl", "rb") as f:
+#     et = pickle.load(f)
+# et = et[:1]
+# et += et
+# print("The training edge types are: ", et)
 
 decagon = DecagonData(et)
 val_test_size = 0.1
@@ -137,7 +150,7 @@ flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 100, 'Number of epochs to train.')
+flags.DEFINE_integer('epochs', 10, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
 flags.DEFINE_float('weight_decay', 0, 'Weight for L2 loss on embedding matrix.')
@@ -210,12 +223,14 @@ begin_time = time.time()
 # Train model
 #
 ###########################################################
-ep = [0, 10, 30, 60, 80, 90]
+
 print("Train model")
 for epoch in range(FLAGS.epochs):
 
     minibatch.shuffle()
     itr = 0
+    val_cost = 0
+    test_cost = 0
     while not minibatch.end():
         # Construct feed dictionary
         feed_dict = minibatch.next_minibatch_feed_dict(placeholders=placeholders)
@@ -223,6 +238,7 @@ for epoch in range(FLAGS.epochs):
             feed_dict=feed_dict,
             dropout=FLAGS.dropout,
             placeholders=placeholders)
+
 
         # t = time.time()
 
@@ -233,6 +249,7 @@ for epoch in range(FLAGS.epochs):
 
         # ##### validation loss for a iteration #####
         # if itr % PRINT_PROGRESS_EVERY == 0:
+        #     print(itr)
         #     val_auc, val_auprc, val_apk = get_accuracy_scores(
         #         minibatch.val_edges, minibatch.val_edges_false,
         #         minibatch.idx2edge_type[minibatch.current_edge_type_idx])
@@ -242,11 +259,34 @@ for epoch in range(FLAGS.epochs):
         #           "val_roc=", "{:.5f}".format(val_auc), "val_auprc=", "{:.5f}".format(val_auprc),
         #           "val_apk=", "{:.5f}".format(val_apk), "time=", "{:.5f}".format(time.time() - t))
 
+        # loss on validation set
+        val_cost += get_cost(minibatch.val_edges, minibatch.val_edges_false,
+                             minibatch.idx2edge_type[minibatch.current_edge_type_idx])
+
+        # loss on test set
+        test_cost += get_cost(minibatch.test_edges, val_test_size,
+                              minibatch.idx2edge_type[minibatch.current_edge_type_idx])
+
+        # update iteration
         itr += 1
+        # if itr == 10:
+        #     break
 
-    # validation loss for each epoch
+    # validation and test loss for each epoch
+    print("Epoch: ", "%04d" % epoch,
+          "Validation cost: ", "{:.5f}".format(val_cost),
+          "Test cost: ", "{:.5f}".format(test_cost))
 
-
+    # prediction score of some of the epoch
+    # print("--------- test score for epoch ", epoch)
+    # for et in range(decagon.num_edge_types):
+    #     roc_score, auprc_score, apk_score = get_accuracy_scores(
+    #         minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
+    #     print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])
+    #     print("Edge type:", "%04d" % et, "Test AUROC score", "{:.5f}".format(roc_score))
+    #     print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
+    #     print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
+    #     print()
 
 print("Optimization finished!")
 print("Opt Time Cost: %f" % (time.time() - begin_time))
@@ -258,14 +298,14 @@ save_path = saver.save(sess, "./tmp/model.ckpt")
 print("Model saved in path: %s" % save_path)
 
 
-for et in range(decagon.num_edge_types):
-    roc_score, auprc_score, apk_score = get_accuracy_scores(
-        minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
-    print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])
-    print("Edge type:", "%04d" % et, "Test AUROC score", "{:.5f}".format(roc_score))
-    print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
-    print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
-    print()
+# for et in range(decagon.num_edge_types):
+#     roc_score, auprc_score, apk_score = get_accuracy_scores(
+#         minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
+#     print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])
+#     print("Edge type:", "%04d" % et, "Test AUROC score", "{:.5f}".format(roc_score))
+#     print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
+#     print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
+#     print()
 
 print("Test Time Cost: {:f}".format(time.time() - begin_time))
 print("Finished!")

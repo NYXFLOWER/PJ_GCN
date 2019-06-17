@@ -17,6 +17,7 @@ adj[1, 1][0].diagonal().max()
 tmp = [data[i].nnz for i in range(NUM_EDGE)]
 tmp = np.sort(tmp)
 
+n = 57      #
 num = plt.hist(tmp, bins=57)
 plt.xlabel('Number of Times A D-D Edge Type Occurs')
 plt.ylabel('Numbers of D-D Edge Type')
@@ -30,13 +31,13 @@ plt.show()
 # ########################### Sample training DD edge types ########################## #
 tmp = np.array([data[i].nnz for i in range(NUM_EDGE)])
 
-lower_bound = 500
-higher_bound = 1500
+lower_bound = 0
+higher_bound = 500
 
 boolean = np.logical_and(tmp > lower_bound, tmp <= higher_bound)
 indices = np.nonzero(boolean)[0].tolist()
 
-with open("./data_decagon/training_samples.pkl", "wb") as f:
+with open("./data_decagon/training_samples_0_500.pkl", "wb") as f:
     pickle.dump(indices, f)
 
 
