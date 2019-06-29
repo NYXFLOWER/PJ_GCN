@@ -27,21 +27,25 @@ os.environ['CUDA_VISIBLE_DEVICES'] = ""
 
 np.random.seed(0)
 
+# load selected training
+with open("./data_decagon/training_samples_500.pkl", "rb") as f:
+    et = pickle.load(f)
+et += et
+print("The training edge types are: ", et)
+print("Total ", int(len(et)/2), " DD edge types will be trained...")
+
 
 ###########################################################
 #
 # Functions
 #
 ###########################################################
-
-
 def get_accuracy_scores(edges_pos, edges_neg, edge_type):
     feed_dict.update({placeholders['dropout']: 0})
     feed_dict.update({placeholders['batch_edge_type_idx']: minibatch.edge_type2idx[edge_type]})
     feed_dict.update({placeholders['batch_row_edge_type']: edge_type[0]})
     feed_dict.update({placeholders['batch_col_edge_type']: edge_type[1]})
     rec = sess.run(opt.predictions, feed_dict=feed_dict)
-
 
     def sigmoid(x):
         return 1. / (1 + np.exp(-x))
@@ -112,7 +116,6 @@ def construct_placeholders(edge_types):
 # logging
 # print("All Print Info will be written to output.log")
 # stdout_backup = sys.stdout
-# log_file = open("/home/acq18hx/outputworst.log", "w")
 # log_file = open("./output.log", "w")
 # sys.stdout = log_file
 
@@ -123,19 +126,12 @@ begin_time = time.time()
 # Load and preprocess data
 #
 ###########################################################
-# NUM_EDGE = 6
+# NUM_EDGE = 1307
 # generate training edge types
 # et = [i for i in range(NUM_EDGE)] + [i for i in range(NUM_EDGE)]            # ordered edge types
 # et = [130, 644, 668, 1113, 1246, 762, 130, 644, 668, 1113, 1246, 762,]       # top 6 best
 # et = [475, 1052, 1285, 104, 669, 1145, 475, 1052, 1285, 104, 669, 1145]     # top 6 worst
-et = [130, 644, 668, 1113, 1246, 762, 475, 1052, 130, 644, 668, 1113, 1246, 762, 475, 1052]     # 6best + 2worst
-
-# load selected training
-# with open("./data_decagon/training_samples.pkl", "rb") as f:
-#     et = pickle.load(f)
-# et = et[:1]
-# et += et
-# print("The training edge types are: ", et)
+# et = [130, 644, 668, 1113, 1246, 762, 475, 1052, 130, 644, 668, 1113, 1246, 762, 475, 1052]     # 6best + 2worst
 
 decagon = DecagonData(et)
 val_test_size = 0.1
@@ -150,7 +146,7 @@ flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 10, 'Number of epochs to train.')
+flags.DEFINE_integer('epochs', 100, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
 flags.DEFINE_float('weight_decay', 0, 'Weight for L2 loss on embedding matrix.')
@@ -161,7 +157,7 @@ flags.DEFINE_boolean('bias', True, 'Bias term.')
 
 # Important -- Do not evaluate/print validation performance every iteration as it can take
 # substantial amount of time
-PRINT_PROGRESS_EVERY = 150
+# PRINT_PROGRESS_EVERY = 150
 
 print("Defining placeholders")
 placeholders = construct_placeholders(decagon.edge_types)
@@ -277,6 +273,12 @@ for epoch in range(FLAGS.epochs):
           "Validation cost: ", "{:.5f}".format(val_cost),
           "Test cost: ", "{:.5f}".format(test_cost))
 
+    if (epoch+1) % 10 == 0:
+        # save model to path
+        path = "./tmp/ep" + str(epoch+1) + "/model.ckpt"
+        save_path = saver.save(sess, path)
+        print("Model saved in path: %s" % save_path)
+
     # prediction score of some of the epoch
     # print("--------- test score for epoch ", epoch)
     # for et in range(decagon.num_edge_types):
@@ -289,26 +291,27 @@ for epoch in range(FLAGS.epochs):
     #     print()
 
 print("Optimization finished!")
-print("Opt Time Cost: %f" % (time.time() - begin_time))
-begin_time = time.time()
+
+print("Total Opt Time Cost: %f" % (time.time() - begin_time))
 
 
-# save model to path
-save_path = saver.save(sess, "./tmp/model.ckpt")
-print("Model saved in path: %s" % save_path)
+# # save model to path
+# save_path = saver.save(sess, "./tmp/model.ckpt")
+# print("Model saved in path: %s" % save_path)
 
 
-# for et in range(decagon.num_edge_types):
-#     roc_score, auprc_score, apk_score = get_accuracy_scores(
-#         minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
-#     print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])
-#     print("Edge type:", "%04d" % et, "Test AUROC score", "{:.5f}".format(roc_score))
-#     print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
-#     print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
-#     print()
-
-print("Test Time Cost: {:f}".format(time.time() - begin_time))
-print("Finished!")
+for et in range(decagon.num_edge_types):
+    roc_score, auprc_score, apk_score = get_accuracy_scores(
+        minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
+    print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])
+    print("Edge type:", "%04d" % et, "Test AUROC score", "{:.5f}".format(roc_score))
+    print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
+    print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
+    print()
 
 # log_file.close()
 # sys.stdout = stdout_backup
+
+print("Finished!")
+
+
