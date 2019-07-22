@@ -30,6 +30,7 @@ np.random.seed(0)
 # load selected training
 with open("./data_decagon/training_samples_500.pkl", "rb") as f:
     et = pickle.load(f)
+et = [1, 2]
 et += et
 print("The training edge types are: ", et)
 print("Total ", int(len(et)/2), " DD edge types will be trained...")
@@ -146,7 +147,7 @@ flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
 flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 100, 'Number of epochs to train.')
+flags.DEFINE_integer('epochs', 1, 'Number of epochs to train.')
 flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
 flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
 flags.DEFINE_float('weight_decay', 0, 'Weight for L2 loss on embedding matrix.')

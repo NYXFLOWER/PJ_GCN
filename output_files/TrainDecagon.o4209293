@@ -1,0 +1,73 @@
+Hello from 4209293. 
+loading...
+load gene_gene finished!
+load gene_drug finished!
+load drug_drug finished!
+load drug_feature finished!
+Edge types: 2638
+======================================================
+Defining placeholders
+Create minibatch iterator
+mini-batch created!
+Create model
+Create optimizer
+Initialize session
+Train model
+Epoch: 0001 Iter: 0001 Edge: 0000 train_loss= 42.67601 val_roc= 0.74743 val_auprc= 0.70750 val_apk= 0.83298 time= 680.82216
+Epoch: 0001 Iter: 0151 Edge: 0003 train_loss= 3.70495 val_roc= 0.85885 val_auprc= 0.83902 val_apk= 1.00000 time= 22.85527
+Epoch: 0001 Iter: 0301 Edge: 0000 train_loss= 14.62571 val_roc= 0.85474 val_auprc= 0.83052 val_apk= 1.00000 time= 39.83746
+Epoch: 0001 Iter: 0451 Edge: 0003 train_loss= 4.65275 val_roc= 0.93153 val_auprc= 0.91521 val_apk= 1.00000 time= 21.46679
+Epoch: 0001 Iter: 0601 Edge: 0000 train_loss= 11.26455 val_roc= 0.86824 val_auprc= 0.84772 val_apk= 1.00000 time= 38.71523
+Epoch: 0001 Iter: 0751 Edge: 0003 train_loss= 3.31458 val_roc= 0.93370 val_auprc= 0.92037 val_apk= 1.00000 time= 21.74676
+Epoch: 0001 Iter: 0901 Edge: 0000 train_loss= 12.15757 val_roc= 0.88673 val_auprc= 0.86690 val_apk= 0.97919 time= 38.73605
+Optimization finished!
+Edge type= [00, 00, 00]
+Edge type: 0000 Test AUROC score 0.89166
+Edge type: 0000 Test AUPRC score 0.87575
+Edge type: 0000 Test AP@k score 0.79447
+
+Edge type= [00, 00, 01]
+Edge type: 0001 Test AUROC score 0.48197
+Edge type: 0001 Test AUPRC score 0.48540
+Edge type: 0001 Test AP@k score 0.41691
+
+Edge type= [00, 01, 00]
+Edge type: 0002 Test AUROC score 0.86837
+Edge type: 0002 Test AUPRC score 0.91824
+Edge type: 0002 Test AP@k score 1.00000
+
+Edge type= [01, 00, 00]
+Edge type: 0003 Test AUROC score 0.94855
+Edge type: 0003 Test AUPRC score 0.93674
+Edge type: 0003 Test AP@k score 1.00000
+
+Edge type= [01, 01, 00]
+Edge type: 0004 Test AUROC score 0.55272
+Edge type: 0004 Test AUPRC score 0.57313
+Edge type: 0004 Test AP@k score 0.54639
+
+Edge type= [01, 01, 01]
+Edge type: 0005 Test AUROC score 0.57053
+Edge type: 0005 Test AUPRC score 0.58224
+Edge type: 0005 Test AP@k score 0.43295
+
+Edge type= [01, 01, 02]
+Edge type: 0006 Test AUROC score 0.70898
+Edge type: 0006 Test AUPRC score 0.72074
+Edge type: 0006 Test AP@k score 0.75511
+
+Edge type= [01, 01, 03]
+Edge type: 0007 Test AUROC score 0.39560
+Edge type: 0007 Test AUPRC score 0.43283
+Edge type: 0007 Test AP@k score 0.11997
+
+Edge type= [01, 01, 04]
+Edge type: 0008 Test AUROC score 0.70110
+Edge type: 0008 Test AUPRC score 0.69132
+Edge type: 0008 Test AP@k score 0.66083
+
+Edge type= [01, 01, 05]
+Edge type: 0009 Test AUROC score 0.64000
+Edge type: 0009 Test AUPRC score 0.67037
+Edge type: 0009 Test AP@k score 0.48884
+

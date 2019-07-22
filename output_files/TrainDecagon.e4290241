@@ -1,0 +1,8 @@
+Conda uses environments to load different sets of Python packages
+type conda env list to see the environments availible.
+Traceback (most recent call last):
+  File "/home/acq18hx/decagon/main.py", line 162, in <module>
+    val_test_size=val_test_size,
+  File "/home/acq18hx/decagon/decagon/deep/minibatch.py", line 47, in __init__
+    with open(temp + "train_edges.pkl", "rb") as pk:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/acq18hx/decagon/full_train_edges.pkl'

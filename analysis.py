@@ -119,101 +119,101 @@ def get_accuracy_scores(edges_pos, edges_neg, edge_type):
 #     pickle.dump(indices, f)
 
 
-# ########################### Load check point and analysis ########################## #
-# load selected training
-with open("./data_decagon/training_samples_500.pkl", "rb") as f:
-    et = pickle.load(f)
-et += et
-print("The training edge types are: ", et)
-print("Total ", int(len(et)/2), " DD edge types have been trained...")
-
-decagon = DecagonData(et)
-val_test_size = 0.1
-
-# Settings and placeholders
-flags = tf.app.flags
-FLAGS = flags.FLAGS
-flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
-flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
-flags.DEFINE_integer('epochs', 100, 'Number of epochs to train.')
-flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
-flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
-flags.DEFINE_float('weight_decay', 0, 'Weight for L2 loss on embedding matrix.')
-flags.DEFINE_float('dropout', 0.1, 'Dropout rate (1 - keep probability).')
-flags.DEFINE_float('max_margin', 0.1, 'Max margin parameter in hinge loss')
-flags.DEFINE_integer('batch_size', 512, 'minibatch size.')
-flags.DEFINE_boolean('bias', True, 'Bias term.')
-
-print("Defining placeholders")
-placeholders = construct_placeholders(decagon.edge_types)
-
-# Create minibatch iterator, model and optimizer
-minibatch = EdgeMinibatchIterator(
-    adj_mats=decagon.adj_mats_orig,
-    feat=decagon.feat,
-    edge_types=decagon.edge_types,
-    et=et,
-    batch_size=FLAGS.batch_size,
-    val_test_size=val_test_size,
-)
-
-model = DecagonModel(
-    placeholders=placeholders,
-    num_feat=decagon.num_feat,
-    nonzero_feat=decagon.num_nonzero_feat,
-    edge_types=decagon.edge_types,
-    decoders=decagon.edge_type2decoder,
-    name='bw12',
-    logging='logging'
-)
-
-with tf.name_scope('optimizer'):
-    opt = DecagonOptimizer(
-        embeddings=model.embeddings,
-        latent_inters=model.latent_inters,
-        latent_varies=model.latent_varies,
-        degrees=decagon.degrees,
-        edge_types=decagon.edge_types,
-        edge_type2dim=decagon.edge_type2dim,
-        placeholders=placeholders,
-        batch_size=FLAGS.batch_size,
-        margin=FLAGS.max_margin
-    )
-
-# Initialize session
-sess = tf.Session()
-sess.run(tf.global_variables_initializer())
-feed_dict = {}
-
-# restore all the variables.
-saver = tf.train.Saver()
-# Restore variables from disk.
-saver.restore(sess, "./tmp/model.ckpt")
-
-# feed to tf dictionary
-while not minibatch.end():
-    # Construct feed dictionary
-    feed_dict = minibatch.next_minibatch_feed_dict(placeholders=placeholders)
-    feed_dict = minibatch.update_feed_dict(
-        feed_dict=feed_dict,
-        dropout=FLAGS.dropout,
-        placeholders=placeholders)
-
-# score-based evaluation
-score = []
-for et in range(decagon.num_edge_types):
-    roc_score, auprc_score, apk_score = get_accuracy_scores(
-        minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
-    score.append(roc_score)
-    score.append(auprc_score)
-    score.append(apk_score)
-    print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])
-    print("Edge type:", "%04d" % et, "Test AUROC score", "{:.5f}".format(roc_score))
-    print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
-    print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
-    print()
-
-# save scores to file
-with open("./analysis/result_decagon.pkl", "wb") as f:
-    pickle.dump(score, f)
+# # ########################### Load check point and analysis ########################## #
+# # load selected training
+# with open("./data_decagon/training_samples_500.pkl", "rb") as f:
+#     et = pickle.load(f)
+# et += et
+# print("The training edge types are: ", et)
+# print("Total ", int(len(et)/2), " DD edge types have been trained...")
+#
+# decagon = DecagonData(et)
+# val_test_size = 0.1
+#
+# # Settings and placeholders
+# flags = tf.app.flags
+# FLAGS = flags.FLAGS
+# flags.DEFINE_integer('neg_sample_size', 1, 'Negative sample size.')
+# flags.DEFINE_float('learning_rate', 0.001, 'Initial learning rate.')
+# flags.DEFINE_integer('epochs', 100, 'Number of epochs to train.')
+# flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
+# flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
+# flags.DEFINE_float('weight_decay', 0, 'Weight for L2 loss on embedding matrix.')
+# flags.DEFINE_float('dropout', 0.1, 'Dropout rate (1 - keep probability).')
+# flags.DEFINE_float('max_margin', 0.1, 'Max margin parameter in hinge loss')
+# flags.DEFINE_integer('batch_size', 512, 'minibatch size.')
+# flags.DEFINE_boolean('bias', True, 'Bias term.')
+#
+# print("Defining placeholders")
+# placeholders = construct_placeholders(decagon.edge_types)
+#
+# # Create minibatch iterator, model and optimizer
+# minibatch = EdgeMinibatchIterator(
+#     adj_mats=decagon.adj_mats_orig,
+#     feat=decagon.feat,
+#     edge_types=decagon.edge_types,
+#     et=et,
+#     batch_size=FLAGS.batch_size,
+#     val_test_size=val_test_size,
+# )
+#
+# model = DecagonModel(
+#     placeholders=placeholders,
+#     num_feat=decagon.num_feat,
+#     nonzero_feat=decagon.num_nonzero_feat,
+#     edge_types=decagon.edge_types,
+#     decoders=decagon.edge_type2decoder,
+#     name='bw12',
+#     logging='logging'
+# )
+#
+# with tf.name_scope('optimizer'):
+#     opt = DecagonOptimizer(
+#         embeddings=model.embeddings,
+#         latent_inters=model.latent_inters,
+#         latent_varies=model.latent_varies,
+#         degrees=decagon.degrees,
+#         edge_types=decagon.edge_types,
+#         edge_type2dim=decagon.edge_type2dim,
+#         placeholders=placeholders,
+#         batch_size=FLAGS.batch_size,
+#         margin=FLAGS.max_margin
+#     )
+#
+# # Initialize session
+# sess = tf.Session()
+# sess.run(tf.global_variables_initializer())
+# feed_dict = {}
+#
+# # restore all the variables.
+# saver = tf.train.Saver()
+# # Restore variables from disk.
+# saver.restore(sess, "./tmp/model.ckpt")
+#
+# # feed to tf dictionary
+# while not minibatch.end():
+#     # Construct feed dictionary
+#     feed_dict = minibatch.next_minibatch_feed_dict(placeholders=placeholders)
+#     feed_dict = minibatch.update_feed_dict(
+#         feed_dict=feed_dict,
+#         dropout=FLAGS.dropout,
+#         placeholders=placeholders)
+#
+# # score-based evaluation
+# score = []
+# for et in range(decagon.num_edge_types):
+#     roc_score, auprc_score, apk_score = get_accuracy_scores(
+#         minibatch.test_edges, minibatch.test_edges_false, minibatch.idx2edge_type[et])
+#     score.append(roc_score)
+#     score.append(auprc_score)
+#     score.append(apk_score)
+#     print("Edge type=", "[%02d, %02d, %02d]" % minibatch.idx2edge_type[et])
+#     print("Edge type:", "%04d" % et, "Test AUROC score", "{:.5f}".format(roc_score))
+#     print("Edge type:", "%04d" % et, "Test AUPRC score", "{:.5f}".format(auprc_score))
+#     print("Edge type:", "%04d" % et, "Test AP@k score", "{:.5f}".format(apk_score))
+#     print()
+#
+# # save scores to file
+# with open("./analysis/result_decagon.pkl", "wb") as f:
+#     pickle.dump(score, f)
 
