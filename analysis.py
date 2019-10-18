@@ -8,6 +8,7 @@ from decagon.deep.model import DecagonModel
 from decagon.deep.minibatch import EdgeMinibatchIterator
 from decagon.utility import rank_metrics
 from sklearn import metrics
+import matplotlib.pyplot as plt
 
 import numpy as np
 import tensorflow as tf
@@ -15,76 +16,76 @@ import pickle
 import os
 
 
-os.environ['CUDA_VISIBLE_DEVICES'] = ""
+# os.environ['CUDA_VISIBLE_DEVICES'] = ""
+#
+#
+# def construct_placeholders(edge_types):
+#     placeholders = {
+#         'batch': tf.placeholder(tf.int32, name='batch'),
+#         'batch_edge_type_idx': tf.placeholder(tf.int32, shape=(), name='batch_edge_type_idx'),
+#         'batch_row_edge_type': tf.placeholder(tf.int32, shape=(), name='batch_row_edge_type'),
+#         'batch_col_edge_type': tf.placeholder(tf.int32, shape=(), name='batch_col_edge_type'),
+#         'degrees': tf.placeholder(tf.int32),
+#         'dropout': tf.placeholder_with_default(0., shape=()),
+#     }
+#     placeholders.update({
+#         'adj_mats_%d,%d,%d' % (i, j, k): tf.sparse_placeholder(tf.float32)
+#         for i, j in edge_types for k in range(edge_types[i, j])})
+#     placeholders.update({
+#         'feat_%d' % i: tf.sparse_placeholder(tf.float32)
+#         for i, _ in edge_types})
+#     return placeholders
+#
+#
+# def get_accuracy_scores(edges_pos, edges_neg, edge_type):
+#     feed_dict.update({placeholders['dropout']: 0})
+#     feed_dict.update({placeholders['batch_edge_type_idx']: minibatch.edge_type2idx[edge_type]})
+#     feed_dict.update({placeholders['batch_row_edge_type']: edge_type[0]})
+#     feed_dict.update({placeholders['batch_col_edge_type']: edge_type[1]})
+#     rec = sess.run(opt.predictions, feed_dict=feed_dict)
+#
+#     def sigmoid(x):
+#         return 1. / (1 + np.exp(-x))
+#
+#     # Predict on test set of edges
+#     preds = []
+#     actual = []
+#     predicted = []
+#     edge_ind = 0
+#     for u, v in edges_pos[edge_type[:2]][edge_type[2]]:
+#         score = sigmoid(rec[u, v])
+#         preds.append(score)
+#         assert decagon.adj_mats_orig[edge_type[:2]][edge_type[2]][u, v] == 1, 'Problem 1'
+#
+#         actual.append(edge_ind)
+#         predicted.append((score, edge_ind))
+#         edge_ind += 1
+#
+#     preds_neg = []
+#     for u, v in edges_neg[edge_type[:2]][edge_type[2]]:
+#         score = sigmoid(rec[u, v])
+#         preds_neg.append(score)
+#         assert decagon.adj_mats_orig[edge_type[:2]][edge_type[2]][u, v] == 0, 'Problem 0'
+#
+#         predicted.append((score, edge_ind))
+#         edge_ind += 1
+#
+#     preds_all = np.hstack([preds, preds_neg])
+#     preds_all = np.nan_to_num(preds_all)
+#     labels_all = np.hstack([np.ones(len(preds)), np.zeros(len(preds_neg))])
+#     predicted = list(zip(*sorted(predicted, reverse=True, key=itemgetter(0))))[1]
+#
+#     roc_sc = metrics.roc_auc_score(labels_all, preds_all)
+#     aupr_sc = metrics.average_precision_score(labels_all, preds_all)
+#     apk_sc = rank_metrics.apk(actual, predicted, k=50)
+#
+#     return roc_sc, aupr_sc, apk_sc
 
 
-def construct_placeholders(edge_types):
-    placeholders = {
-        'batch': tf.placeholder(tf.int32, name='batch'),
-        'batch_edge_type_idx': tf.placeholder(tf.int32, shape=(), name='batch_edge_type_idx'),
-        'batch_row_edge_type': tf.placeholder(tf.int32, shape=(), name='batch_row_edge_type'),
-        'batch_col_edge_type': tf.placeholder(tf.int32, shape=(), name='batch_col_edge_type'),
-        'degrees': tf.placeholder(tf.int32),
-        'dropout': tf.placeholder_with_default(0., shape=()),
-    }
-    placeholders.update({
-        'adj_mats_%d,%d,%d' % (i, j, k): tf.sparse_placeholder(tf.float32)
-        for i, j in edge_types for k in range(edge_types[i, j])})
-    placeholders.update({
-        'feat_%d' % i: tf.sparse_placeholder(tf.float32)
-        for i, _ in edge_types})
-    return placeholders
-
-
-def get_accuracy_scores(edges_pos, edges_neg, edge_type):
-    feed_dict.update({placeholders['dropout']: 0})
-    feed_dict.update({placeholders['batch_edge_type_idx']: minibatch.edge_type2idx[edge_type]})
-    feed_dict.update({placeholders['batch_row_edge_type']: edge_type[0]})
-    feed_dict.update({placeholders['batch_col_edge_type']: edge_type[1]})
-    rec = sess.run(opt.predictions, feed_dict=feed_dict)
-
-    def sigmoid(x):
-        return 1. / (1 + np.exp(-x))
-
-    # Predict on test set of edges
-    preds = []
-    actual = []
-    predicted = []
-    edge_ind = 0
-    for u, v in edges_pos[edge_type[:2]][edge_type[2]]:
-        score = sigmoid(rec[u, v])
-        preds.append(score)
-        assert decagon.adj_mats_orig[edge_type[:2]][edge_type[2]][u, v] == 1, 'Problem 1'
-
-        actual.append(edge_ind)
-        predicted.append((score, edge_ind))
-        edge_ind += 1
-
-    preds_neg = []
-    for u, v in edges_neg[edge_type[:2]][edge_type[2]]:
-        score = sigmoid(rec[u, v])
-        preds_neg.append(score)
-        assert decagon.adj_mats_orig[edge_type[:2]][edge_type[2]][u, v] == 0, 'Problem 0'
-
-        predicted.append((score, edge_ind))
-        edge_ind += 1
-
-    preds_all = np.hstack([preds, preds_neg])
-    preds_all = np.nan_to_num(preds_all)
-    labels_all = np.hstack([np.ones(len(preds)), np.zeros(len(preds_neg))])
-    predicted = list(zip(*sorted(predicted, reverse=True, key=itemgetter(0))))[1]
-
-    roc_sc = metrics.roc_auc_score(labels_all, preds_all)
-    aupr_sc = metrics.average_precision_score(labels_all, preds_all)
-    apk_sc = rank_metrics.apk(actual, predicted, k=50)
-
-    return roc_sc, aupr_sc, apk_sc
-
-
-# NUM_EDGE = 1317
-# et = [i for i in range(NUM_EDGE)] + [i for i in range(NUM_EDGE)]         # ordered edge types
-# data = DecagonData(et)
-# data = data.adj_mats_orig[1, 1]
+NUM_EDGE = 1317
+et = [i for i in range(NUM_EDGE)] + [i for i in range(NUM_EDGE)]         # ordered edge types
+data = DecagonData(et)
+data = data.adj_mats_orig[1, 1]
 
 # ########################### For Embedding Check ########################## #
 # adj = data.adj_mats_orig
@@ -92,18 +93,18 @@ def get_accuracy_scores(edges_pos, edges_neg, edge_type):
 
 
 # ########################### Histogram of DD Edge Type ########################## #
-# tmp = [data[i].nnz for i in range(NUM_EDGE)]
-# tmp = np.sort(tmp)
-#
-# n = 57      #
-# num = plt.hist(tmp, bins=57)
-# plt.xlabel('Number of Times A D-D Edge Type Occurs')
-# plt.ylabel('Numbers of D-D Edge Type')
-# plt.title('Frequency Distribution Histogram of D-D Edge Type')
-# plt.grid()
-# # plt.yscale('log')
-# plt.savefig('hist_dd_edge.png')
-# plt.show()
+tmp = [data[i].nnz for i in range(NUM_EDGE)]
+tmp = np.sort(tmp)
+
+n = 57      #
+num = plt.hist(tmp, bins=57)
+plt.xlabel('Number of Times A D-D Edge Type Occurs')
+plt.ylabel('Numbers of D-D Edge Type')
+plt.title('Frequency Distribution Histogram of D-D Edge Type')
+plt.grid()
+# plt.yscale('log')
+plt.savefig('hist_dd_edge.png')
+plt.show()
 
 
 # ########################### Sample training DD edge types ########################## #
